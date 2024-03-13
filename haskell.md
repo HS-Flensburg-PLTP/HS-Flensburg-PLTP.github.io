@@ -75,3 +75,16 @@ Es gibt in VSCode drei Möglichkeiten, um die durch HLint vorgeschlagenen Änder
    Es erscheint ein Icon am linken Rand, dieses anklicken um eine Liste an Vorschlägen zu öffnen.
    Einen von den Vorschlägen auswählen.
 3. Unter "Probleme" den Eintrag auswählen und auf das Glühbirnen-Icon klicken und die gewünschte Aktion auswählen.
+
+## Anwendungen mit Cabal / Stack installieren
+
+Über `cabal install` / `stack install` werden ausführbare Dateien aus dem Haskell-Projekt im aktuellen Verzeichnis erzeugt.
+Als Argument kann auch der Name eines Haskell-Paketes angegeben werden, das dann mit seinen Abhängigkeiten von [Hackage](https://hackage.haskell.org/) geladen wird.
+Dabei können vorher mit `info` Angaben zum Haskell-Paket ausgegeben und mit `update` die Liste der bekannten Haskell-Pakete aktuell gehalten werden.
+
+Nach erfolgreicher Installation wird der Installationspfad angegeben. Bei Cabal ist das standardmäßig der `bin`-Unterordner im Cabalverzeichnis und bei Stack: <br>
+UNIX: `$HOME/.local/bin` <br>
+Windows: `%APPDATA%\local\bin`
+
+Um die Anwendungen einfach in der Konsole und in Skripten verwenden zu können, sollte dieser Pfad Teil der Umgebungsvariable `PATH` sein.
+Diese enthält die Verzeichnisse, in der das System nach ausführbaren Dateien sucht.
