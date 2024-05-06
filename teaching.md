@@ -1,14 +1,19 @@
 ---
 layout: post
 title: Lehre
-date: 2023-03-20
+date: 2024-05-06
 ---
 
 
 ## Abschlussarbeiten
 
-- [Themen für Abschlussarbeiten und Projekte](student-projects.md) 
+<!-- - [Themen für Abschlussarbeiten und Projekte](student-projects.md)  -->
 - [Allgemeine Informationen zur Arbeit mit Haskell](haskell.md)
+
+
+## Sommersemester 2024
+
+- [Deklarative Software-Technologien](2024/declarative-software-technologies.md)
 
 
 ## Sommersemester 2023
