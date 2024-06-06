@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Abschlussarbeiten/Projekte
-date: 2024-05-21
+date: 2024-06-04
 ---
 
 Die hier aufgeführten Bachelor- und Masterarbeiten können in Absprache auch in Form von Bachelor- bzw. Masterprojekten bearbeitet werden.
@@ -125,7 +125,11 @@ Neben diesen Basisinformationen soll die Anwendung im besten Fall noch weitere I
 <!-- ### Typinformationen für Elm-Projekte
 
 In dieser Arbeit soll eine bestehende Anwendung, die Elm-Projekte von GitHub sammelt und analysiert, verbessert werden.
-Dazu soll
+Die Anwendung sammelt die Variablennamen, die in Elm-Projekte verwendet werden.
+Um besser zu verstehen, nach welchen Regeln Programmierer\*innen Namen vergeben, sollen neben den Namen die Typen der Variablen gesammelt werden.
+Da Elm eine Programmiersprache mit Typinferenz ist, müssen die Elm-Projekte zu diesen Zweck gebaut werden.
+Das heißt, der Elm-Compiler wird für jedes Repo genutzt, um das Elm-Projekt zu bauen.
+Der Elm-Compiler legt Dateien an, in denen Informationen über die Typen von
 
 - den Elm-Compiler nutzen, um ein Projekt zu bauen
 - die `elmi`-Dateien auslesen, um die Typinformationen auszulesen
@@ -172,11 +176,11 @@ Es ist zu erwarten, dass die Haskell-Anwendung zur Generierung der Vektoren aus 
 **Voraussetzungen:** Grundkenntnisse in Haskell  
 **Geeignet als:** Bachelor- oder Masterarbeit -->
 
-## Programming Feedback
+## Programmanalyse
 
-<!-- ### Redundante Fälle in `case`-Ausdrücken
+### Redundante Fälle in `case`-Ausdrücken
 
-Um Studierenden Rückmeldungen zur Ihren Programmierabgaben in der Programmiersprache Elm zu geben, wird die Bibliothek [elm-review](https://github.com/jfmengels/elm-review/tree/2.13.2) genutzt.
+Um Studierenden Rückmeldungen zur Ihren Programmierabgaben in der Programmiersprache Elm zu geben, wird in einer Vorlesung die Bibliothek [elm-review](https://github.com/jfmengels/elm-review/tree/2.13.2) genutzt.
 In dieser Arbeit soll eine Regel für die Bibliothek `elm-review` entwickelt werden, die anmerkt, wenn ein Fall eines `case`-Ausdruckes redundant ist.
 Ein Fall ist redundant, wenn man den Fall entfernen kann, ohne dass sich das Verhalten der Funktion verändert.
 Die folgende Definition enthält eine Regel, die redundant ist.
@@ -186,22 +190,22 @@ snocList : List a -> a -> List a
 snocList list element =
     case list of
         [] ->
-            [ element ]
+            element :: []
 
-        [ head ] ->
-            [ head, element ]
+        head :: [] ->
+            head :: element :: []
 
         head :: rest ->
             head :: snocList rest element
 ```
 
 Wenn die zweite Regel aus dieser Definition entfernt wird, verändert sich das Verhalten dieser Funktion nicht.
-Wenn die Funktion mit einer Liste der Form `[ head ]` aufgerufen wird, wird die dritte Regeln genommen, falls die zweite Regel nicht existiert.
-In diesem Fall wird der Aufruf `snocList [] element` durchgeführt.
-Dieser Aufruf liefert als Ergebnis `[ element ]`.
-Somit erhalten wir von der dritten Regeln als Ergebnis `head :: [ element ]`, was identisch zu `[ head, element ]` ist.
+Wenn die Funktion mit einer Liste der Form `head :: []` aufgerufen wird, wird die dritte Regeln genommen, falls die zweite Regel nicht existiert.
+In diesem Fall wird der Aufruf `snocList [] element` durchgeführt, wobei `element` ein abstraktes Argument ist, das an die Funktion `snocList` übergeben wurde.
+Der Aufruf `snocList [] element` liefert als Ergebnis `element :: []`.
+Somit erhalten wir von der gesamten dritten Regel als Ergebnis `head :: element :: []`, was identisch zum Ergebnis ist, das die zweite Regel geliefert hätte.
 Daher kann in dieser Definition die zweite Regel entfernt werden.
--->
+
 
 <!-- ```elm
 hasCollision : Snake -> Bool
@@ -247,11 +251,19 @@ removeLastCons x xs =
             x :: removeLastCons y ys
 ``` -->
 
-<!-- Um zu überprüfen, ob ein Fall entfernt werden kann, muss zuerst überprüft werden, ob es zwei _Pattern_ gibt, die sich überlappen.
-In der Funktion `snocList` überlappen zum Beispiel die _Pattern_ `[ head ]` und `head :: rest`, da das zweite _Pattern_ ein Spezialfall des ersten _Pattern_ ist.
+Um zu überprüfen, ob ein Fall entfernt werden kann, muss zuerst überprüft werden, ob es zwei _Pattern_ gibt, die sich überlappen.
+In der Funktion `snocList` überlappen zum Beispiel die _Pattern_ `head :: []` und `head :: rest`, da das erste _Pattern_ ein Spezialfall des zweiten _Pattern_ ist.
 Aus den beiden _Pattern_ kann nun eine Substitution berechnet werden.
 Eine Substitution beschreibt, wie man aus dem einen _Pattern_ das andere _Pattern_ erzeugen kann.
-Im Fall von `snocList` besteht die Substitution aus `rest -> []`. -->
+Im Fall von `snocList` besteht die Substitution aus `rest -> []`.
+Das heißt, wenn wir die Variable `rest` durch `[]` ersetzen, können wir aus dem _Pattern_ `head :: rest` das _Pattern_ `head :: []` erzeugen.
+
+Wenn zwei _Pattern_ gefunden sind, die sich überlappen, kann die Substitution auf die rechte Seite des Falles angewendet werden.
+Wir ersetzen in unserem Beispiel also zum Beispiel im Ausdruck `head :: snocList rest element` alle Vorkommen von `rest` durch `[]`.
+Wir erhalten somit `head :: snocList [] element`.
+
+**Voraussetzungen:** Gute Kenntnisse in einer funktionalen Sprache  
+**Geeignet als:** Masterarbeit
 
 
 ### Reimplementierungen erkennen
@@ -319,27 +331,124 @@ incAll list =
 
 Nun kann die Funktion einfacher mit der vordefinierten Funktion `List.map` verglichen werden, da zum Beispiel die _Pattern_ einfach der Reihenfolge nach verglichen werden können.
 
-Als Beispiele für die Erkennung von Reimplementierungen können die Funktionen `List.length`, `List.filter`, `List.any`, `List.map` und `List.concatMap` betrachtet weden.
+Als Beispiele für die Erkennung von Reimplementierungen können die Funktionen `List.length`, `List.filter`, `List.any`, `List.map` und `List.concatMap` betrachtet werden.
 
-**Voraussetzungen:** Gute Kenntnisse in Elm  
+**Voraussetzungen:** Gute Kenntnisse in einer funktionalen Sprache  
 **Geeignet als:** Bachelorarbeit
+
+
+### Feedback zu Mathematik-Aufgaben
+
+In der Vorlesung [Algorithmen](https://hs-flensburg-algo.github.io) müssen die Studierenden kleine Beweise zum asymptotischen Verhalten von Funktionen schreiben.
+Es ist leider sehr aufwändig, sinnvoll Rückmeldungen zu den Beweisen zu geben.
+Dieses Problem soll in dieser Arbeit angegangen werden.
+
+Das erste Problem bei der Abgabe der Aufgaben besteht darin, dass die Studierenden Fotos ihrer Beweise oder PDF-Dateien abgeben.
+Diese Daten lassen sich im Vergleich zum Programmcode, der in den anderen Aufgaben abgegeben wird, nicht gut automatisiert analysieren.
+Daher soll im ersten Schritt eine Sprache für die spezielle Form von Beweisen, die die Studierenden schreiben, entwickelt werden.
+Diese Sprache orientiert sich stark an den mathematischen Formalismen, kann aber in Form einer Textdatei verfasst werden.
+
+Wenn die Studierenden ihre Textdatei hochladen, sollten sie eine direkte Rückmeldung zu Ihrer Abgabe erhalten.
+In den Programmieraufgaben geschieht dies durch Testfälle und statischen Analysen, die durch Automatisierung bei jedem _Push_ in ein Git-Repository ausgeführt werden.
+Im Vergleich zu Programmieraufgaben scheitern viele Studierenden bei den Mathematikaufgaben bereits daran, korrekte Syntax zu verwenden und Variablen korrekt einzuführen, bevor sie verwendet werden.
+Um Feedback zu den Aufgaben zu erhalten, soll ein Parser für die sehr einfache mathematische Sprache entwickelt werden.
+Dieser Parser muss berücksichtigen, dass Studierende häufig bereits Probleme mit der Syntax haben und sollte die Ergebnisse nicht nur verwerfen, sondern gute Erklärungen für die Fehler liefern.
+
+Wenn die Abgabe syntaktisch akzeptiert wird, sollten die Studierenden auch Rückmeldung zur Korrektheit der Abgabe erhalten.
+Dazu soll der interaktive Theorembeweiser [Coq](https://coq.inria.fr) verwendet werden.
+Coq stellt eine Programmiersprache zur Verfügung, in der Beweise programmiert werden können.
+Das Web-Buch [Software Foundations](https://softwarefoundations.cis.upenn.edu/lf-current/toc.html) bietet eine Einführung in die Programmiersprache Coq.
+Das Buch führt aber sehr viel mehr Konzepte der Sprache ein als für die Bearbeitung des Themas benötigt werden.
+Um einen Beweis zu überprüfen, muss die eigene Beweissprache in ein Coq-Programm überführt werden.
+Das Coq-Programm kann anschließend durch den Coq-Compiler auf Korrektheit überprüft werden.
+Wenn der Coq-Compiler das Programm akzeptiert, ist der Beweis korrekt.
+Im ersten Schritt muss erst einmal keine Rückmeldung gegeben werden, warum der Beweis falsch ist.
+
+Zu Anfang der Arbeit muss erst einmal eine Literaturrecherche zum Thema Vermittlung von mathematischen Fähigkeiten mithilfe von Theorembeweisern durchgeführt werden.
+Einen guten Einstieg bietet [Waterproof: Educational Software for Learning How to Write Mathematical Proofs](https://arxiv.org/pdf/2211.13513).
+
+**Voraussetzungen:** Gute Kenntnisse in einer funktionalen Sprache, grundlegende mathematische Fähigkeiten  
+**Geeignet als:** Masterarbeit
+
+
+## Programmiersprachen-Design
+
+### Sicheres Model-View-Update
+
+In dieser Arbeit soll ein Konzept für eine Model-View-Update-Architektur entwickelt werden, die mehr statische Garantien erlaubt.
+Dabei geht es insbesondere um den Fall, dass in einem bestimmten Modellzustand nur bestimmte Nachrichten an die Anwendung möglich sind.
+Das Konzept soll prototypisch für die Model-View-Update-Architektur in Elm umgesetzt werden.
+
+Aktuell lässt sich in Elm nicht ausdrücken, dass nur bestimmte Nachrichten in einem bestimmten Modellzustand erwartet werden.
+Wenn man etwa das Beispiel eines Spiels nimmt, kann das Spiel laufen oder beendet sein.
+Während das Spiel läuft ist es beispielsweise möglich eine Spielfigur mit den Tasten zu bewegen.
+Ist das Spiel beendet, sollen diese Eingaben aber nicht verarbeitet werden.
+Wenn die Anwendung im Beendet-Zustand eine Nachricht zum Bewegen der Spielfigur erhält, gibt es zwei Möglichkeiten.
+Die Nachricht kann ignoriert werden, was schnell dazu führt, dass fehlerhafte interne Zustände erhalten bleiben.
+Alternativ kann die Anwendung in einen Fehlerzustand wechseln, wenn ein inkonsistenter Zustand auftritt.
+In diesem Fall wird im Grunde ein Laufzeitfehler ausgelöst und es ist wünschenswert, solche Laufzeitfehler durch statische Fehler zu ersetzen.
+
+Als mögliche Lösung für dieses Problem soll auf jeden Fall der Einsatz von generalisierten algebraischen Datentypen evaluiert werden.
+Alternativ können aber auch andere moderne Konzepte, etwa Typklassen oder Typfunktionen evaluiert werden.
+Zur Evaluation soll bewertet werden, wie einfach die Technik anwendbar ist.
+Dabei bezieht sich "einfach" sowohl darauf, dass die Implementierung trotz der statischen Garantien noch möglichst verständlich sein soll.
+Es bezieht sich aber auch darauf, wie einfach sich das Konzept in eine bestehende Programmiersprache integrieren lässt.
+Dies soll wieder anhand der Integration des Features in den Elm-Compiler evaluiert werden.
+Um mit geringem Aufwand zu evaluieren, in wie weit moderne Typfeatures sich für die Lösung des Problems eignen, sollen die Lösungen prototypisch in Haskell implementiert werden.
+Das heißt, die Implementierung einer Elm-Anwendung wird in Haskell simuliert, indem entsprechende Datentypen und Funktionen zur Modellierung der Model-View-Update-Architektur implementiert werden.
+
+Im Kontext von Haskell soll evaluiert werden, welche Probleme bei der Modellierung von konkreten Anwendungen im Kontext eines sicheren Model-View-Update entstehen.
+Im Anschluss soll im besten Fall prototypisch eine Implementierung des Features im Kontext einer Elm-Anwendung evaluiert werden.
+Um dabei nicht darauf angewiesen zu sein, den Elm-Compiler zu erweitern, soll der Prototyp daraus bestehen, dass ein Präprozessor eine erweiterte Variante von Elm nimmt und in "normales" Elm übersetzt.
+Auf diese Weise ist es möglich ein entsprechendes Sprachfeature mit vergleichsweise geringem Aufwand prototypisch zu testen.
+
+**Voraussetzungen:** Gute Kenntnisse in einer funktionalen Sprache  
+**Geeignet als:** Masterarbeit
 
 
 ## Web-Anwendungen
 
 ### Priorities
 
-In dieser Arbeit soll eine Web-Anwendung entwickelt werden.
-Die Anwendung erlaubt es eine Umfrage zu erstellen, bei der Teilnehmer\*innen aus einer vorgegebenen Liste von Optionen eine festgegebene Anzahl an Optionen auswählen können.
-Die Grundstruktur der Anwendung soll sich an Diensten wie [Doodle](doodle.com) orientieren.
+In dieser Arbeit soll ein Prototyp für eine Web-Anwendung entwickelt werden.
+Die Anwendung erlaubt es, eine Umfrage zu erstellen, bei der Teilnehmer\*innen aus einer vorgegebenen Liste von Optionen eine festgegebene Anzahl an Optionen auswählen können.
+Die Grundstruktur der Anwendung soll sich an Diensten wie [Doodle](doodle.com) oder auch dem [DFN-Terminplaner](https://terminplaner6.dfn.de) orientieren.
 Außerdem kann man die gewählten Optionen in eine Prioritätenreihenfolge bringen.
 Für die Anwendung muss also sowohl ein _Interface_ für die Konfigurator\*innen als auch für Teilnehmer\*innen entwickelt werden.
 
 Die Daten werden in einem Backend gespeichert.
 Die Daten können zum Beispiel mittels [Supabase](https://supabase.com) oder [PostgREST](https://postgrest.org) zur gespeichert werden.
+Es muss kein Nutzermanagement implementiert werden.
+Stattdessen wird die Autorisierung über zufällige _Token_ umgesetzt.
+Das heißt, Teilnehmer\*innen erhalten eine URL mit einem zufälligen _Token_, um an einer Umfrage teilzunehmen.
+Um eine Umfrage editieren zu können, gibt es ebenfalls eine URL mit einem zufälligen _Token_.
+Es soll evaluiert werden, ob es sinnvoll ist, dass Teilnehmer\*innen ihre Auswahl im Nachhinein ändern.
+
 Um die Optionen möglichst optimal auf die Teilnehmer\*innen zu verteilen, wird eine Zuordnung von Optionen zu Teilnehmer\*innen mithilfe von linearer Programmierung durchgeführt.
-Da aktuell keine bessere Lösung zur Verfügung steht, kann die Zuordnung mithilfe der JavaScript-Bibliothek [glpk.js](https://github.com/hgourvest/glpk.js) berechnet werden.
-Auf lange Sicht wäre es besser, einen Microservice anzubieten, der eine Instanz mittels der C-Bibliothek [GNU Linear Programming Kit](https://en.wikipedia.org/wiki/GNU_Linear_Programming_Kit) löst und das Ergebnis in geeigneter Form zurückliefert.
+Dazu wird ein Microservice zur Verfügung gestellt, der eine Instanz mittels der C-Bibliothek [GNU Linear Programming Kit](https://en.wikipedia.org/wiki/GNU_Linear_Programming_Kit) löst und das Ergebnis in geeigneter Form zurückliefert.
+Zur Umsetzung des Frontends soll die Programmiersprache Elm verwendet werden.
+Die Anwendung wird als _Single Page Application_, zum Beispiel mithilfe des Frameworks [Elm Land](https://elm.land) erstellt.
+
+Neben der Entwicklung der Anwendung soll ein Schwerpunkt der Arbeit auf einem sehr benutzerfreundlichen _User Interface_ liegen.
+
 
 **Voraussetzungen:** Gute Kenntnisse in Elm  
 **Geeignet als:** Bachelorarbeit
+
+
+<!-- ### Prove It
+
+Neben den in <a href="#feedback-zu-mathematik-aufgaben">Feedback zu Mathematik-Aufgaben</a> beschriebenen Problemen, besteht ein weiteres Problem darin, dass die Studierenden nicht ausreichend Möglichkeiten haben, die mathematischen Beweise zu üben.
+Aufgrund des Aufwändigen Feedbacks gibt es vergleichsweise wenige Aufgaben zu Beweisen.
+
+Aus diesem Grund soll eine Web-Anwendung entwickelt werden, mit der einfache Formen von Beweisen dieser Art erstellt werden können.
+Bei der Durchführung der Beweise sind nur eine handvoll Schritte möglich.
+Diese möglichen Schritte werden den Nutzer\*innen als Optionen angeboten.
+Je nach dem, welche Option gewählt wird, müssen die Nutzer\*innen dann noch zusätzliche Informationen angeben.
+
+Um den Coq-Compiler aufzurufen, kann entweder [jsCoq](https://github.com/ejgallego/jscoq) genutzt werden, eine JavaScript-Implementierung des Coq-Compilers, oder es wird ein einfaches Backend entwickelt, das den Coq-Compiler ausführt und die Ergebnisse in geeigneter Form zurückgibt.
+Dazu muss das Ergebnis, das der Coq-Compiler bei der Übersetzung eines Programms liefert, entsprechend geparset werden.
+Das heißt, es müssen die notwendigen Informationen aus der Ausgabe des Compilers extrahiert werden.
+
+In einer Erweiterung der Anwendung können Nutzer\*innen die Aufgaben textuell bearbeiten statt eine feste Anzahl von Optionen anzubieten.
+Das heißt, die Anwendung muss in der Lage sein, die Eingabe der Nutzer\*innen zu parsen und auf die Struktur eines typischen Beweise zu überprüfen. -->
