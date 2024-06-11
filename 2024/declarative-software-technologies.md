@@ -77,7 +77,7 @@ In diese Kategorie würden auch Anwendungen fallen, die dabei helfen sich an der
 So wäre es zum Beispiel möglich eine "Wo finde ich was?"-Anwendung umzusetzen, die dabei unterstützt Einrichtungen an der Hochschule zu finden.
 
 
-#### Grundungsprojekte
+#### Gründungsprojekte
 
 In diesem Themenbereich können Projekte umgesetzt werden, die eine Komponente einer StartUp-Idee umsetzen.
 Dabei kann es sich um eine digitale Dienstleistung handeln, die später, zum Beispiel über Nutzergebühren oder Werbung monetarisiert werden kann.
