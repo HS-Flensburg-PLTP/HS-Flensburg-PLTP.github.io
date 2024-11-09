@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Abschlussarbeiten/Projekte
-date: 2024-06-04
+date: 2024-11-06
 ---
 
 Die hier aufgeführten Bachelor- und Masterarbeiten können in Absprache auch in Form von Bachelor- bzw. Masterprojekten bearbeitet werden.
@@ -76,10 +76,10 @@ Zum Beispiel wird der Operator `|>` gern zusammen mit Funktionen wie `andThen` u
 Außerdem wird der Operator `<|` gern verwendet, wenn das Argument, auf das die Funktion angewendet wird, mehrere Zeilen überspannt.
 Es soll untersicht werden, ob die Operatoren `|>` und `<|` vor allem in diesen Fällen verwendet werden oder ob es noch weitere wiederkehrende Anwendungsfälle gibt.
 
-Falls die Zeit es erlaubt, sind ähnliche Untersuchungen auch für die Operatoren `>>` und `<<` möglich.
+Falls die Zeit es erlaubt, kann die Untersuchung auf weitere funktionale Sprachen ausgedehnt werden.
 
 **Voraussetzungen:** Grundkenntnisse in Haskell, gute Kenntnisse in Elm  
-**Geeignet als:** Bachelorarbeit
+**Geeignet als:** Bachelor- oder Masterarbeit
 
 
 ### Replikation einer Studie
@@ -101,7 +101,26 @@ Daher soll nach der Replikation insbesondere ein Konzept entwickelt werden, um m
 **Geeignet als:** Bachelorarbeit
 
 
-### Web-Anwendung zur Datenvisualisierung
+### Bezeichner in F#
+
+In dieser Arbeit soll eine bestehende Haskell-Anwendung um die Verarbeitung von F#-Programmen erweitert werden.
+Die Programmiersprache F# ist eine funktionale Sprache, die von Haskell inspiriert wurde und auf der .Net-Platform von Microsoft läuft.
+Die bestehende Haskell-Anwendung sammelt die 200 Repositories mit dem meisten Sternen von GitHub für die Programmiersprachen Haskell, Elm, PureScript und OCaml.
+Diese Anwendung soll um die Verarbeitung der 200 Repositories mit den meisten Sternen in F# erweitert werden.
+Zu diesem Zweck muss im ersten Schritt die Möglichkeit geschaffen werden, F#-Programme in Haskell zu verarbeiten.
+Dazu soll ein minimales F#-Programm geschrieben werden, das eine Datei mit einem F#-Programm einliest und einen abstrakten Syntaxbaum (AST) auf der Konsole ausgibt.
+Für diesen abstrakten Syntaxbaum wird dann in Haskell ein Parser mithilfe von Parser-Kombinatoren geschrieben.
+Der Parser überführt die Ausgabe auf der Konsole in einen Haskell-Datentyp, der den AST darstellt.
+Wenn auf diese Weise erfolgreich in Haskell ein AST für ein F#-Programm erzeugt werden kann, soll prototypisch gezeigt werden, dass die Bezeichner aus einem F#-Programm gesammelt werden können.
+
+Bei der Umsetzung als Masterarbeit soll die gesamte Integration der Sprache in das bestehende Tool umgesetzt werden.
+Dazu sollen Build-Dateien der Sprache F# analysiert werden, um die Quelldateien, die ich in einem Repository befinden, zu sammeln.
+
+**Voraussetzungen:** Gute Kenntnisse in einer funktionalen Sprache  
+**Geeignet als:** Bachelor- oder Masterarbeit
+
+
+<!-- ### Web-Anwendung zur Datenvisualisierung
 
 In einer zuvor durchgeführten Abschlussarbeit wurden die Bezeichner in 200 Haskell-Projekten auf GitHub untersucht.
 In dieser Arbeit soll eine Web-Anwendung in Elm entwickelt werden, welche es Nutzern ermöglicht, diese Daten zu inspizieren.
@@ -119,7 +138,7 @@ Diese Daten können im ersten Schritt im Frontend erzeugt werden, müssen bei Pe
 Neben diesen Basisinformationen soll die Anwendung im besten Fall noch weitere Informationen zur Verfügung stellen, zum Beispiel die Namen von besonders langen Bezeichnern, aber auch Bezeichner, die besonders häufig vorkommen.
 
 **Voraussetzungen:** Gute Kenntnisse in Elm  
-**Geeignet als:** Bachelorarbeit
+**Geeignet als:** Bachelorarbeit -->
 
 
 <!-- ### Typinformationen für Elm-Projekte
@@ -176,7 +195,80 @@ Es ist zu erwarten, dass die Haskell-Anwendung zur Generierung der Vektoren aus 
 **Voraussetzungen:** Grundkenntnisse in Haskell  
 **Geeignet als:** Bachelor- oder Masterarbeit -->
 
+
+## Programmiersprachen-Design
+
+
+### Entwicklung einer Sprache für mathematische Beweise
+
+In der Vorlesung [Algorithmen](https://hs-flensburg-algo.github.io) müssen die Studierenden kleine Beweise zum asymptotischen Verhalten von Funktionen schreiben.
+Es ist leider sehr aufwändig, sinnvoll Rückmeldungen zu den Beweisen zu geben.
+Dieses Problem soll in dieser Arbeit angegangen werden.
+
+Das erste Problem bei der Abgabe der Aufgaben besteht darin, dass die Studierenden Fotos ihrer Beweise oder PDF-Dateien abgeben.
+Diese Daten lassen sich im Vergleich zum Programmcode, der in den anderen Aufgaben abgegeben wird, nicht gut automatisiert analysieren.
+Daher soll im ersten Schritt eine Sprache für die spezielle Form von Beweisen, die die Studierenden schreiben, entwickelt werden.
+Diese Sprache orientiert sich stark an den mathematischen Formalismen, kann aber in Form einer Textdatei verfasst werden.
+
+Wenn die Studierenden ihre Textdatei hochladen, sollten sie eine direkte Rückmeldung zu Ihrer Abgabe erhalten.
+In den Programmieraufgaben geschieht dies durch Testfälle und statische Analysen, die durch Automatisierung bei jedem _Push_ in ein Git-Repository ausgeführt werden.
+Im Vergleich zu Programmieraufgaben scheitern viele Studierenden bei den Mathematikaufgaben bereits daran, korrekte Syntax zu verwenden und Variablen korrekt einzuführen, bevor sie verwendet werden.
+Um Feedback zu den Aufgaben zu erhalten, soll ein Parser für die sehr einfache mathematische Sprache entwickelt werden.
+Dieser Parser muss berücksichtigen, dass Studierende häufig bereits Probleme mit der Syntax haben und sollte die Ergebnisse nicht nur verwerfen, sondern gute Erklärungen für die Fehler liefern.
+
+**Voraussetzungen:** Gute Kenntnisse in einer funktionalen Sprache, grundlegende mathematische Fähigkeiten  
+**Geeignet als:** Bachelorarbeit
+
+
+### Sicheres Model-View-Update
+
+In dieser Arbeit soll ein Konzept für eine Model-View-Update-Architektur entwickelt werden, die mehr statische Garantien erlaubt.
+Dabei geht es insbesondere um den Fall, dass in einem bestimmten Modellzustand nur bestimmte Nachrichten an die Anwendung möglich sind.
+Das Konzept soll prototypisch für die Model-View-Update-Architektur in Haskell umgesetzt werden.
+
+Aktuell lässt sich in Elm nicht ausdrücken, dass nur bestimmte Nachrichten in einem bestimmten Modellzustand erwartet werden.
+Wenn man etwa das Beispiel eines Spiels nimmt, kann das Spiel laufen oder beendet sein.
+Während das Spiel läuft ist es beispielsweise möglich eine Spielfigur mit den Tasten zu bewegen.
+Ist das Spiel beendet, sollen diese Eingaben aber nicht verarbeitet werden.
+Wenn die Anwendung im Beendet-Zustand eine Nachricht zum Bewegen der Spielfigur erhält, gibt es zwei Möglichkeiten.
+Die Nachricht kann ignoriert werden, was schnell dazu führt, dass fehlerhafte interne Zustände erhalten bleiben.
+Alternativ kann die Anwendung in einen Fehlerzustand wechseln, wenn ein inkonsistenter Zustand auftritt.
+In diesem Fall wird im Grunde ein Laufzeitfehler ausgelöst und es ist wünschenswert, solche Laufzeitfehler durch statische Fehler zu ersetzen.
+
+Als mögliche Lösung für dieses Problem soll der Einsatz von generalisierten algebraischen Datentypen (GADTs) evaluiert werden.
+Die Programmiersprache Elm stellt keine generalisierten algebraischen Datentypen zur Verfügung, in der Programmiersprache Haskell können diese aber genutzt werden.
+Daher soll das Konzept mithilfe der Haskell-Bibliothek [miso](https://haskell-miso.org) evaluiert werden.
+Das Framework [miso](https://haskell-miso.org) ist eine Implementierung der Model-View-Update-Architektur in Haskell.
+Zur Illustration der Verwendung von miso enthält das miso-Repository eine [Implementierung des TodoMVC](https://github.com/dmjio/miso/blob/master/examples/todo-mvc/Main.hs).
+
+Im Kontext von Haskell soll evaluiert werden, welche Probleme bei der Modellierung von konkreten Anwendungen im Kontext eines sicheren Model-View-Update entstehen.
+Während die Verwendung von GADTs zum Beispiel eine höhere statische Sicherheit ermöglicht, werden Programmierer*innen ggf. so stark eingeschränkt, dass es schwieriger ist, eine Anwendung zu strukturieren.
+Um diesen Aspekt zu evaluieren, sollen verschiedene typische Beispiele aus der Entwicklung von Frontendanwendungen mit der Model-View-Update-Architektur evaluiert werden.
+
+**Voraussetzungen:** Gute Kenntnisse in einer funktionalen Sprache  
+**Geeignet als:** Bachelor- oder Masterarbeit
+
+
 ## Programmanalyse
+
+### Entwicklung eines _Identifier Dictionaries_ für Haskell
+
+Die Publikation [Concise and consistent naming](https://wwwbroy.in.tum.de/publ/papers/deissenboeck_pizka_identifier_naming.pdf) stellt das Konzept eines _Identifier Dictionaries_ vor.
+Diese Anwendung sammelt die Bezeichner, die in einem Software-Projekt verwendet werden und listet sie auf.
+Die Anwendung soll dabei helfen, ungenaue oder inkonsistente Benennungen zu erkennen.
+
+In dieser Arbeit soll eine vergleichbare Anwendung für die Programmiersprache Haskell entwickelt werden.
+Die größte Herausforderung besteht dabei darin, Typinformationen für die in einer Haskell-Anwendung verwendeten Variablen zu erhalten.
+Um dies zu erreichen, muss die Haskell-Anwendung inklusive der Auflösung von Abhängigkeiten gebaut werden.
+Es soll prototypisch ein Ansatz für ein solches _Identifier Dictionary_ entwickelt werden.
+Zu diesem Zweck werden Hie-Dateien verwendet.
+Der Haskell-Compiler ist in der Lage, [Hie-Dateien](https://www.haskell.org/ghc/blog/20190626-HIEFiles.html) zu erzeugen.
+Bei diesen Dateien handelt es sich um Beschreibungen des Interface eines Moduls, die zum Beispiel für IDE-Unterstützungen verwendet werden.
+Diese Hie-Dateien müssen für ein Projekt erzeugt und gelesen werden, um ein _Identifier Dictionary_ zu erzeugen.
+
+**Voraussetzungen:** Gute Kenntnisse in Haskell  
+**Geeignet als:** Bachelor- oder Masterarbeit
+
 
 ### Redundante Fälle in `case`-Ausdrücken
 
@@ -339,22 +431,8 @@ Als Beispiele für die Erkennung von Reimplementierungen können die Funktionen 
 
 ### Feedback zu Mathematik-Aufgaben
 
-In der Vorlesung [Algorithmen](https://hs-flensburg-algo.github.io) müssen die Studierenden kleine Beweise zum asymptotischen Verhalten von Funktionen schreiben.
-Es ist leider sehr aufwändig, sinnvoll Rückmeldungen zu den Beweisen zu geben.
-Dieses Problem soll in dieser Arbeit angegangen werden.
-
-Das erste Problem bei der Abgabe der Aufgaben besteht darin, dass die Studierenden Fotos ihrer Beweise oder PDF-Dateien abgeben.
-Diese Daten lassen sich im Vergleich zum Programmcode, der in den anderen Aufgaben abgegeben wird, nicht gut automatisiert analysieren.
-Daher soll im ersten Schritt eine Sprache für die spezielle Form von Beweisen, die die Studierenden schreiben, entwickelt werden.
-Diese Sprache orientiert sich stark an den mathematischen Formalismen, kann aber in Form einer Textdatei verfasst werden.
-
-Wenn die Studierenden ihre Textdatei hochladen, sollten sie eine direkte Rückmeldung zu Ihrer Abgabe erhalten.
-In den Programmieraufgaben geschieht dies durch Testfälle und statischen Analysen, die durch Automatisierung bei jedem _Push_ in ein Git-Repository ausgeführt werden.
-Im Vergleich zu Programmieraufgaben scheitern viele Studierenden bei den Mathematikaufgaben bereits daran, korrekte Syntax zu verwenden und Variablen korrekt einzuführen, bevor sie verwendet werden.
-Um Feedback zu den Aufgaben zu erhalten, soll ein Parser für die sehr einfache mathematische Sprache entwickelt werden.
-Dieser Parser muss berücksichtigen, dass Studierende häufig bereits Probleme mit der Syntax haben und sollte die Ergebnisse nicht nur verwerfen, sondern gute Erklärungen für die Fehler liefern.
-
-Wenn die Abgabe syntaktisch akzeptiert wird, sollten die Studierenden auch Rückmeldung zur Korrektheit der Abgabe erhalten.
+Dieses Projekt ist einer Erweiterung des Projektes [Entwicklung einer Sprache für mathematische Beweise](#entwicklung-einer-sprache-für-mathematische-beweise).
+Wenn die Abgabe der mathematischen Beweise syntaktisch akzeptiert wird, sollten die Studierenden auch Rückmeldung zur Korrektheit der Abgabe erhalten.
 Dazu soll der interaktive Theorembeweiser [Coq](https://coq.inria.fr) verwendet werden.
 Coq stellt eine Programmiersprache zur Verfügung, in der Beweise programmiert werden können.
 Das Web-Buch [Software Foundations](https://softwarefoundations.cis.upenn.edu/lf-current/toc.html) bietet eine Einführung in die Programmiersprache Coq.
@@ -371,44 +449,43 @@ Einen guten Einstieg bietet [Waterproof: Educational Software for Learning How t
 **Geeignet als:** Masterarbeit
 
 
-## Programmiersprachen-Design
-
-### Sicheres Model-View-Update
-
-In dieser Arbeit soll ein Konzept für eine Model-View-Update-Architektur entwickelt werden, die mehr statische Garantien erlaubt.
-Dabei geht es insbesondere um den Fall, dass in einem bestimmten Modellzustand nur bestimmte Nachrichten an die Anwendung möglich sind.
-Das Konzept soll prototypisch für die Model-View-Update-Architektur in Elm umgesetzt werden.
-
-Aktuell lässt sich in Elm nicht ausdrücken, dass nur bestimmte Nachrichten in einem bestimmten Modellzustand erwartet werden.
-Wenn man etwa das Beispiel eines Spiels nimmt, kann das Spiel laufen oder beendet sein.
-Während das Spiel läuft ist es beispielsweise möglich eine Spielfigur mit den Tasten zu bewegen.
-Ist das Spiel beendet, sollen diese Eingaben aber nicht verarbeitet werden.
-Wenn die Anwendung im Beendet-Zustand eine Nachricht zum Bewegen der Spielfigur erhält, gibt es zwei Möglichkeiten.
-Die Nachricht kann ignoriert werden, was schnell dazu führt, dass fehlerhafte interne Zustände erhalten bleiben.
-Alternativ kann die Anwendung in einen Fehlerzustand wechseln, wenn ein inkonsistenter Zustand auftritt.
-In diesem Fall wird im Grunde ein Laufzeitfehler ausgelöst und es ist wünschenswert, solche Laufzeitfehler durch statische Fehler zu ersetzen.
-
-Als mögliche Lösung für dieses Problem soll auf jeden Fall der Einsatz von generalisierten algebraischen Datentypen evaluiert werden.
-Alternativ können aber auch andere moderne Konzepte, etwa Typklassen oder Typfunktionen evaluiert werden.
-Zur Evaluation soll bewertet werden, wie einfach die Technik anwendbar ist.
-Dabei bezieht sich "einfach" sowohl darauf, dass die Implementierung trotz der statischen Garantien noch möglichst verständlich sein soll.
-Es bezieht sich aber auch darauf, wie einfach sich das Konzept in eine bestehende Programmiersprache integrieren lässt.
-Dies soll wieder anhand der Integration des Features in den Elm-Compiler evaluiert werden.
-Um mit geringem Aufwand zu evaluieren, in wie weit moderne Typfeatures sich für die Lösung des Problems eignen, sollen die Lösungen prototypisch in Haskell implementiert werden.
-Das heißt, die Implementierung einer Elm-Anwendung wird in Haskell simuliert, indem entsprechende Datentypen und Funktionen zur Modellierung der Model-View-Update-Architektur implementiert werden.
-
-Im Kontext von Haskell soll evaluiert werden, welche Probleme bei der Modellierung von konkreten Anwendungen im Kontext eines sicheren Model-View-Update entstehen.
-Im Anschluss soll im besten Fall prototypisch eine Implementierung des Features im Kontext einer Elm-Anwendung evaluiert werden.
-Um dabei nicht darauf angewiesen zu sein, den Elm-Compiler zu erweitern, soll der Prototyp daraus bestehen, dass ein Präprozessor eine erweiterte Variante von Elm nimmt und in "normales" Elm übersetzt.
-Auf diese Weise ist es möglich ein entsprechendes Sprachfeature mit vergleichsweise geringem Aufwand prototypisch zu testen.
-
-**Voraussetzungen:** Gute Kenntnisse in einer funktionalen Sprache  
-**Geeignet als:** Masterarbeit
-
-
 ## Web-Anwendungen
 
-### Priorities
+### Regionale Rezepte
+
+In dieser Arbeit soll ein Prototyp für eine Web-Anwendung für Rezepte mit regionalen Zutaten entwickelt werden.
+Der durchschnittlichen Bevölkerung ist heutzutage häufig gar nicht mehr klar, dass nicht jedes Lebensmittel zu jeder Jahreszeit in der Nähe angebaut werden kann.
+Das Ziel dieser Anwendung ist daher, Rezepte zur Verfügung zu stellen, bei denen berücksichtigt wird, dass Zutaten aktuell/zu einem bestimmten Zeitpunkt regional angebaut werden können.
+Im ersten Schritt muss dazu ein Konzept entwickelt werden.
+Das Internet bietet bereits zahlreiche Quellen, in denen man sich über die Saisonalität von landwirtschaftlichen Produkten informieren kann.
+Bei der Nutzung dieser Quellen muss man sich aber aktiv für dieses Thema interessieren und häufig manuell die Zutaten von Rezepten in saisonalen Kalendern suchen.
+Die Anwendung soll daher möglichst niedrigschwellig dafür sorgen, dass mehr Personen Rezepte auswählen, deren Zutaten saisonal regional angebaut werden können.
+Bei der Anwendung soll nicht die Vermittlung von Wissen im Vordergrund stehen, sondern die Motivation von Nutzer\*innen, die Rezepte zu verwenden.
+
+Im ersten Schritt müssen Datenquellen für landwirtschaftliche Produkte evaluiert werden.
+Dabei kann es sich sowohl um Onlinedienste handeln, als auch um Quellen, deren Daten statisch in der Anwendung integriert werden.
+Diese Quellen sollen Daten darüber zur Verfügung stellen, welche landwirtschaftlichen Produkte zu welcher Zeit in Schleswig-Holstein zur Verfügung stehen.
+
+Bei der Bewertung der Nachhaltigkeit von Produkten muss berücksichtigt werden, dass einige Produkte auch als Lagerware zur Verfügung stehen.
+Die Lagerung von Produkten bedeutet aber in einigen Fällen, dass eine aktive Kühlung durchgeführt werden muss.
+Einige Produkte werden außerdem in bestimmten Monaten nur aus dem Gewächshaus angeboten.
+Vor der Umsetzung der Anwendung soll die Nachhaltigkeit dieser Optionen bewertet werden, um zu entscheiden, wie diese Fälle von der Anwendung bewertet werden.
+Außerdem soll bewertet werden, ob alle Zutaten eines Rezeptes regional sein müssen.
+Dies würde zum Beispiel alle Rezepte, die Reis verwenden, ausschließen.
+Ggf. wäre es sinnvoll, um die Ernährung in der breiten Masse nachhaltiger zu gestalten, einen gewissen Kompromiss einzugehen und eine nicht-nachhaltige Zutat in den Rezepten zu erlauben.
+
+<!-- In einem späteren Schritt, der nicht in der Arbeit durchgeführt werden soll, sollen hinter den Rezepten konkrete Anbieter hinterlegt werden.
+Das heißt, für eine Zutat wird dann angegeben, wo das Produkt in der Region erworben werden kann.
+Zu diesen Zweck soll es erst einmal eine Beispielregion, etwa Flensburg oder Kiel verwendet werden. -->
+
+Technologisch soll die Anwendung mit Elm im Frontend umgesetzt werden.
+Zu Beginn des Projektes sollen verschiedene Alternativen für die Umsetzung des Backends evaluiert werden.
+
+**Voraussetzungen:** Gute Kenntnisse in Elm  
+**Geeignet als:** Bachelor- oder Masterarbeit
+
+
+<!-- ### Priorities
 
 In dieser Arbeit soll ein Prototyp für eine Web-Anwendung entwickelt werden.
 Die Anwendung erlaubt es, eine Umfrage zu erstellen, bei der Teilnehmer\*innen aus einer vorgegebenen Liste von Optionen eine festgegebene Anzahl an Optionen auswählen können.
@@ -433,7 +510,7 @@ Neben der Entwicklung der Anwendung soll ein Schwerpunkt der Arbeit auf einem se
 
 
 **Voraussetzungen:** Gute Kenntnisse in Elm  
-**Geeignet als:** Bachelorarbeit
+**Geeignet als:** Bachelorarbeit -->
 
 
 <!-- ### Prove It
