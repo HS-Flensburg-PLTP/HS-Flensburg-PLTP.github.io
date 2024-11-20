@@ -1,14 +1,8 @@
 ---
 layout: post
-title: Lehre
+title: Vorlesungen
 date: 2024-05-06
 ---
-
-
-## Abschlussarbeiten
-
-- [Themen für Abschlussarbeiten und Projekte](student-projects.md) 
-- [Allgemeine Informationen zur Arbeit mit Haskell](haskell.md)
 
 
 ## Sommersemester 2024

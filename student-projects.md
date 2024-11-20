@@ -8,6 +8,8 @@ Die hier aufgeführten Bachelor- und Masterarbeiten können in Absprache auch in
 Dabei wird ggf. der Umfang des Projektes an die Gegebenheiten des Projektes angepasst.
 Falls Sie sich für andere Themen aus den Bereichen moderne Methoden der Softwareentwicklung, Compilerbau, Programmiersprachen oder Algorithmen interessieren, wenden Sie sich bitte einfach per Mail an [mich](mailto:jan.christiansen@hs-flensburg.de).
 
+- [Allgemeine Informationen zur Arbeit mit Haskell](haskell.md)
+
 
 <!-- ## Design von Programmiersprachen -->
 
@@ -247,6 +249,21 @@ Um diesen Aspekt zu evaluieren, sollen verschiedene typische Beispiele aus der E
 
 **Voraussetzungen:** Gute Kenntnisse in einer funktionalen Sprache  
 **Geeignet als:** Bachelor- oder Masterarbeit
+
+
+## Programmiersprachen-Migration
+
+### Werkzeuge zur Migration von JavaScript nach TypeScript
+
+In dieser Arbeit sollen Werkzeuge evaluiert werden, die genutzt werden können, um JavaScript-Anwendungen nach TypeScript zu migrieren.
+Zur Evaluation soll eine konkrete JavaScript-OpenSource-Anwendung genutzt werden.
+Im ersten Schritt muss einer Liste der möglichen Werkzeuge zur Migration erstellt werden.
+Dabei soll sowohl wissenschaftliche Literatur als auch OpenSource-Anwendungen berücksichtigt werden.
+
+
+
+
+
 
 
 ## Programmanalyse
