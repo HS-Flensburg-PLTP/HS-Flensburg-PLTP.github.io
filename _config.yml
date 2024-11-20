@@ -9,3 +9,4 @@ markdown: kramdown
 remote_theme: jekyll/minima
 header_pages:
   - teaching.md
+  - certification.md
