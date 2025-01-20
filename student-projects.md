@@ -1,13 +1,15 @@
 ---
 layout: post
 title: Abschlussarbeiten/Projekte
-date: 2024-11-06
+date: 2025-01-20
 ---
 
 Die hier aufgeführten Bachelor- und Masterarbeiten können in Absprache auch in Form von Bachelor- bzw. Masterprojekten bearbeitet werden.
-Dabei wird ggf. der Umfang des Projektes an die Gegebenheiten des Projektes angepasst.
+Dabei wird ggf. der Umfang des Themas an die Gegebenheiten des Projektes angepasst.
+Falls eines der Themen als Bachelor- oder Masterprojekt durchgeführt werden soll, müssen keine Kenntnisse in Elm vorhanden sein, da diese im Rahmen des Projektes erarbeitet werden können.
 Falls Sie sich für andere Themen aus den Bereichen moderne Methoden der Softwareentwicklung, Compilerbau, Programmiersprachen oder Algorithmen interessieren, wenden Sie sich bitte einfach per Mail an [mich](mailto:jan.christiansen@hs-flensburg.de).
 
+<!-- - [Allgemeine Informationen zu Abschlussarbeiten](theses.md) -->
 - [Allgemeine Informationen zur Arbeit mit Haskell](haskell.md)
 
 
@@ -63,12 +65,28 @@ Danach muss die jeweilige Analyse in das Bestehende Tool integriert werden.
 **Geeignet als:** Bachelor- oder Masterarbeit -->
 
 
-### Eine empirische Untersuchung von Piping in Elm
+<!-- ### Durchführung einer Meta-Studie
+
+Im Rahmen dieser Arbeit soll eine sogenannte Meta-Studie durchgeführt werden.
+Das heißt, es sollen Informationen aus publizierten Studien gesammelt und aufbereitet werden.
+Es gibt zahlreiche wissenschaftliche Arbeiten zur Wahl von Bezeichnern in Programmiersprachen.
+Dabei gibt es zum Einen Studien, die anhand von Probanden testen, welche Art von Bezeichnern besonders schnell oder korrekt zu erinnern sind.
+Außerdem gibt es Studien, die Code daraufhin analysieren, welche Arten von Bezeichnern in Open-Source-Projekten in verschiedenen Programmiersprachen genutzt werden.
+Im Rahmen der Meta-Studie muss zuerst eine Strategie entwickelt werden, mit der relevante wissenschaftliche Arbeiten identifiziert werden.
+Dazu kann etwas auf Plattformen in wissenschaftlichen Arbeiten nach Schlüsselwörtern gesucht werden.
+Im nächsten Schritt müssen alle wissenschaftlichen Arbeiten durchgearbeitet und die wichtigsten Eigenschaften der Arbeiten extrahiert werden.
+
+**Voraussetzungen:** Sorgfältiges Arbeiten, gute englische Sprachkenntnisse  
+**Geeignet als:** Bachelorarbeit -->
+
+
+### Empirische Untersuchung von Piping in Elm
 
 In dieser Arbeit soll die Verwendung der Operatoren `|>` und `<|` in Elm-Projekten bei GitHub untersucht werden.
-Aus mehreren vorhergehenden Abschlussarbeiten steht bereits eine Anwendung in Haskell zur Verfügung, die Elm-Repos von GitHub klont und für den Quelltext abstrakte Syntaxbäume (AST) erzeugt.
-Um die Elm-Anwendungen zu parsen, also einen AST aus dem Quelltext zu erzeugen, wird die Bibliothek [elm-format](https://github.com/HS-Flensburg-PLTP/elm-format) verwendet.
-Um einfach Informationen aus dem AST zu extrahieren, nutzt die Haskell-Anwendung die Ideen aus [Uniform Boilerplate and List Processing](https://ndmitchell.com/downloads/paper-uniform_boilerplate_and_list_processing-30_sep_2007.pdf).
+Aus mehreren vorhergehenden Abschlussarbeiten steht bereits eine Anwendung zur Verfügung, die Elm-Repositories von GitHub klont und analysiert.
+Diese Anwendung ist in Haskell geschrieben.
+Die Anwendung extrahiert aus den Repositories die Elm-Quelldateien und erzeugt mithilfe eines [Parsers](fundamentals.md#parser) aus jeder Quelldatei einen [abstrakten Syntaxbaum (AST)](fundamentals.md#abstrakter-syntaxbaum-ast).
+Der abstrakte Syntaxbaum eines Programms kann dann traversiert werden, um Informationen über die Elm-Programme zu extrahieren.
 
 Die Informationen, die zu den Operatoren `|>` und `<|` erhoben werden, können sich an der Publikation [An Empirical Study of Method Chaining in Java](https://static.csg.ci.i.u-tokyo.ac.jp/papers/20/nakamaru-msr2020.pdf) orientieren.
 Es soll zum Beispiel untersucht werden, wie häufig die Operatoren (ggf. im Vergleich zu normalen Funktionsanwendungen) verwendet werden.
@@ -76,11 +94,18 @@ Außerdem soll untersucht werden, ob es eher lange Sequenzen von Verwendungen de
 Daneben soll untersucht werden, in welchen Fällen die Operatoren `|>` und `<|` vor allem verwendet werden.
 Zum Beispiel wird der Operator `|>` gern zusammen mit Funktionen wie `andThen` und `andMap` verwendet.
 Außerdem wird der Operator `<|` gern verwendet, wenn das Argument, auf das die Funktion angewendet wird, mehrere Zeilen überspannt.
-Es soll untersicht werden, ob die Operatoren `|>` und `<|` vor allem in diesen Fällen verwendet werden oder ob es noch weitere wiederkehrende Anwendungsfälle gibt.
+Es soll untersucht werden, ob die Operatoren `|>` und `<|` vor allem in diesen Fällen verwendet werden oder ob es noch weitere wiederkehrende Anwendungsfälle gibt.
+
+Um die Elm-Anwendungen zu parsen, also einen abstrakten Syntaxbaum aus dem Quelltext zu erzeugen, wird die Haskell-Bibliothek [elm-format](https://github.com/HS-Flensburg-PLTP/elm-format) verwendet.
+Diese Bibliothek stellt auch den Datentyp zur Verfügung, der den abstrakten Syntaxbaum von Elm modelliert.
+Um einfach Informationen aus dem AST zu extrahieren, nutzt die Haskell-Anwendung die Ideen aus [Uniform Boilerplate and List Processing](https://ndmitchell.com/downloads/paper-uniform_boilerplate_and_list_processing-30_sep_2007.pdf).
+Diese Publikation stellt eine Ansatz zur Verfügung, wie man mit vergleichsweise wenig Code aus einem komplexen Datentyp Informationen extrahieren kann.
 
 Falls die Zeit es erlaubt, kann die Untersuchung auf weitere funktionale Sprachen ausgedehnt werden.
 
-**Voraussetzungen:** Grundkenntnisse in Haskell, gute Kenntnisse in Elm  
+Die Arbeit startet mit einer Einarbeitung in Konzepte wie [Parser](fundamentals.md#parser), [abstrakter Syntaxbaum](fundamentals.md#abstrakter-syntaxbaum-ast) und die grundsätzliche Idee von _Repository Mining_-Studien.
+
+**Voraussetzungen:** Grundkenntnisse in Haskell  
 **Geeignet als:** Bachelor- oder Masterarbeit
 
 
@@ -93,30 +118,35 @@ Bei [GitHub](https://github.com/sarahgin/Meaningful-Identifier-Names-The-Case-of
 Dabei werden kleine Python-Skripte genutzt und ein paar sprachspezifische Skripte zur Extraktion der Variablen aus Programmen in den verschiedenen Programmiersprachen.
 Bei der Replikation sollen insbesondere die Ergebnisse für die Programmiersprache JavaScript genauer überprüft werden.
 Die Ergebnisse für die Programmiersprache JavaScript lassen vermuten, dass ggf. minifizierte JavaScript-Dateien mit analysiert wurden.
-Das folgende Zitat stammt aus der Original-Publikation.
+Das folgende Zitat stammt aus der Originalpublikation.
 
 > This (together with the fact that single-letter variables are very common as shown in Figure 1) may indicate that the dataset includes some minified code that was not identified correctly and removed by our filter.
 
 Daher soll nach der Replikation insbesondere ein Konzept entwickelt werden, um minifizierte JavaScript-Module auszuschließen.
 
+Die Arbeit startet mit einer Einarbeitung in Konzepte wie [Parser](fundamentals.md#parser), [abstrakter Syntaxbaum](fundamentals.md#abstrakter-syntaxbaum-ast) und die grundsätzliche Idee von _Repository Mining_-Studien.
+
 **Voraussetzungen:** Kenntnisse in Python  
 **Geeignet als:** Bachelorarbeit
 
 
-### Bezeichner in F#
+### Extraktion von Bezeichnern in F#
 
 In dieser Arbeit soll eine bestehende Haskell-Anwendung um die Verarbeitung von F#-Programmen erweitert werden.
 Die Programmiersprache F# ist eine funktionale Sprache, die von Haskell inspiriert wurde und auf der .Net-Platform von Microsoft läuft.
-Die bestehende Haskell-Anwendung sammelt die 200 Repositories mit dem meisten Sternen von GitHub für die Programmiersprachen Haskell, Elm, PureScript und OCaml.
-Diese Anwendung soll um die Verarbeitung der 200 Repositories mit den meisten Sternen in F# erweitert werden.
+Die bestehende Haskell-Anwendung sammelt die 100 Repositories mit dem meisten Sternen von GitHub für die Programmiersprachen Haskell, Elm, PureScript und OCaml.
+Diese Anwendung soll um die Verarbeitung der 100 Repositories mit den meisten Sternen in F# erweitert werden.
 Zu diesem Zweck muss im ersten Schritt die Möglichkeit geschaffen werden, F#-Programme in Haskell zu verarbeiten.
-Dazu soll ein minimales F#-Programm geschrieben werden, das eine Datei mit einem F#-Programm einliest und einen abstrakten Syntaxbaum (AST) auf der Konsole ausgibt.
-Für diesen abstrakten Syntaxbaum wird dann in Haskell ein Parser mithilfe von Parser-Kombinatoren geschrieben.
+Dazu soll ein minimales F#-Programm geschrieben werden, das eine Datei mit einem F#-Programm einliest und einen [abstrakten Syntaxbaum (AST)](fundamentals.md#abstrakter-syntaxbaum-ast) auf der Konsole ausgibt.
+Das F\#-Programm gibt die Struktur des AST auf der Konsole aus und ein Haskell-Programm soll die Struktur einlesen und als Haskell-Datentyp zur Verfügung stellen.
+Dazu muss in Haskell ein [Parser](fundamentals.md#parser) mithilfe von Parser-Kombinatoren geschrieben werden.
 Der Parser überführt die Ausgabe auf der Konsole in einen Haskell-Datentyp, der den AST darstellt.
 Wenn auf diese Weise erfolgreich in Haskell ein AST für ein F#-Programm erzeugt werden kann, soll prototypisch gezeigt werden, dass die Bezeichner aus einem F#-Programm gesammelt werden können.
 
 Bei der Umsetzung als Masterarbeit soll die gesamte Integration der Sprache in das bestehende Tool umgesetzt werden.
-Dazu sollen Build-Dateien der Sprache F# analysiert werden, um die Quelldateien, die ich in einem Repository befinden, zu sammeln.
+Dazu sollen Build-Konfigurationsdateien der Sprache F# analysiert werden, um die Quelldateien, die ich in einem Repository befinden, zu sammeln.
+
+Die Arbeit startet mit einer Einarbeitung in die Grundlagen der Programmiersprache F\# und Konzepte wie [Parser](fundamentals.md#parser), [abstrakter Syntaxbaum](fundamentals.md#abstrakter-syntaxbaum-ast) und die Verwendung von Parser-Kombinatoren in Haskell.
 
 **Voraussetzungen:** Gute Kenntnisse in einer funktionalen Sprache  
 **Geeignet als:** Bachelor- oder Masterarbeit
@@ -203,8 +233,8 @@ Es ist zu erwarten, dass die Haskell-Anwendung zur Generierung der Vektoren aus 
 
 ### Entwicklung einer Sprache für mathematische Beweise
 
-In der Vorlesung [Algorithmen](https://hs-flensburg-algo.github.io) müssen die Studierenden kleine Beweise zum asymptotischen Verhalten von Funktionen schreiben.
-Es ist leider sehr aufwändig, sinnvoll Rückmeldungen zu den Beweisen zu geben.
+In der Veranstaltung [Algorithmen](https://hs-flensburg-algo.github.io) müssen die Studierenden kleine Beweise zum asymptotischen Verhalten von Funktionen schreiben.
+Es ist leider sehr aufwendig, sinnvoll Rückmeldungen zu den Beweisen zu geben.
 Dieses Problem soll in dieser Arbeit angegangen werden.
 
 Das erste Problem bei der Abgabe der Aufgaben besteht darin, dass die Studierenden Fotos ihrer Beweise oder PDF-Dateien abgeben.
@@ -215,20 +245,22 @@ Diese Sprache orientiert sich stark an den mathematischen Formalismen, kann aber
 Wenn die Studierenden ihre Textdatei hochladen, sollten sie eine direkte Rückmeldung zu Ihrer Abgabe erhalten.
 In den Programmieraufgaben geschieht dies durch Testfälle und statische Analysen, die durch Automatisierung bei jedem _Push_ in ein Git-Repository ausgeführt werden.
 Im Vergleich zu Programmieraufgaben scheitern viele Studierenden bei den Mathematikaufgaben bereits daran, korrekte Syntax zu verwenden und Variablen korrekt einzuführen, bevor sie verwendet werden.
-Um Feedback zu den Aufgaben zu erhalten, soll ein Parser für die sehr einfache mathematische Sprache entwickelt werden.
-Dieser Parser muss berücksichtigen, dass Studierende häufig bereits Probleme mit der Syntax haben und sollte die Ergebnisse nicht nur verwerfen, sondern gute Erklärungen für die Fehler liefern.
+Um Feedback zu den Aufgaben zu erhalten, soll ein [Parser](fundamentals.md#parser) für die sehr einfache mathematische Sprache entwickelt werden.
+Dieser [Parser](fundamentals.md#parser) muss berücksichtigen, dass Studierende häufig bereits Probleme mit der Syntax haben und sollte gute Erklärungen für Fehler liefern.
+
+Die Arbeit startet mit einer Einarbeitung in die grundlegende Struktur der mathematischen Beweise im Rahmen ver Veranstaltung [Algorithmen](https://hs-flensburg-algo.github.io) sowie in die Konzepte [Parser](fundamentals.md#parser) und Parser-Kombinatoren in Haskell.
 
 **Voraussetzungen:** Gute Kenntnisse in einer funktionalen Sprache, grundlegende mathematische Fähigkeiten  
 **Geeignet als:** Bachelorarbeit
 
 
-### Sicheres Model-View-Update
+### Konzept einer sicheren _Model_-_View_-_Update_-Architektur
 
-In dieser Arbeit soll ein Konzept für eine Model-View-Update-Architektur entwickelt werden, die mehr statische Garantien erlaubt.
+In dieser Arbeit soll ein Konzept für eine _Model_-_View_-_Update_-Architektur entwickelt werden, die mehr statische Garantien erlaubt.
 Dabei geht es insbesondere um den Fall, dass in einem bestimmten Modellzustand nur bestimmte Nachrichten an die Anwendung möglich sind.
-Das Konzept soll prototypisch für die Model-View-Update-Architektur in Haskell umgesetzt werden.
+Das Konzept soll prototypisch für eine _Model_-_View_-_Update_-Architektur in Haskell umgesetzt werden.
 
-Aktuell lässt sich in Elm nicht ausdrücken, dass nur bestimmte Nachrichten in einem bestimmten Modellzustand erwartet werden.
+Aktuell lässt sich in der Programmiersprach Elm nicht ausdrücken, dass nur bestimmte Nachrichten in einem bestimmten Modellzustand erwartet werden.
 Wenn man etwa das Beispiel eines Spiels nimmt, kann das Spiel laufen oder beendet sein.
 Während das Spiel läuft ist es beispielsweise möglich eine Spielfigur mit den Tasten zu bewegen.
 Ist das Spiel beendet, sollen diese Eingaben aber nicht verarbeitet werden.
@@ -240,17 +272,20 @@ In diesem Fall wird im Grunde ein Laufzeitfehler ausgelöst und es ist wünschen
 Als mögliche Lösung für dieses Problem soll der Einsatz von generalisierten algebraischen Datentypen (GADTs) evaluiert werden.
 Die Programmiersprache Elm stellt keine generalisierten algebraischen Datentypen zur Verfügung, in der Programmiersprache Haskell können diese aber genutzt werden.
 Daher soll das Konzept mithilfe der Haskell-Bibliothek [miso](https://haskell-miso.org) evaluiert werden.
-Das Framework [miso](https://haskell-miso.org) ist eine Implementierung der Model-View-Update-Architektur in Haskell.
+Das Framework [miso](https://haskell-miso.org) ist eine Implementierung der _Model_-_View_-_Update_-Architektur in Haskell.
 Zur Illustration der Verwendung von miso enthält das miso-Repository eine [Implementierung des TodoMVC](https://github.com/dmjio/miso/blob/master/examples/todo-mvc/Main.hs).
 
-Im Kontext von Haskell soll evaluiert werden, welche Probleme bei der Modellierung von konkreten Anwendungen im Kontext eines sicheren Model-View-Update entstehen.
+Im Kontext von Haskell soll evaluiert werden, welche Probleme bei der Modellierung von konkreten Anwendungen im Kontext eines sicheren _Model_-_View_-_Update_ entstehen.
 Während die Verwendung von GADTs zum Beispiel eine höhere statische Sicherheit ermöglicht, werden Programmierer*innen ggf. so stark eingeschränkt, dass es schwieriger ist, eine Anwendung zu strukturieren.
-Um diesen Aspekt zu evaluieren, sollen verschiedene typische Beispiele aus der Entwicklung von Frontendanwendungen mit der Model-View-Update-Architektur evaluiert werden.
+Um diesen Aspekt zu evaluieren, sollen verschiedene typische Beispiele aus der Entwicklung von Frontendanwendungen mit der _Model_-_View_-_Update_-Architektur evaluiert werden.
+
+Die Arbeit startet mit einer Einarbeitung in die _Model_-_View_-_Update_-Architektur und die konkrete Umsetzung in miso.
+Anschließend wird das Konzept der generalisierten algebraischen Datentypen (GADTs) in Haskell erarbeitet.
 
 **Voraussetzungen:** Gute Kenntnisse in einer funktionalen Sprache  
 **Geeignet als:** Bachelor- oder Masterarbeit
 
-
+<!--
 ## Programmiersprachen-Migration
 
 ### Werkzeuge zur Migration von JavaScript nach TypeScript
@@ -259,19 +294,30 @@ In dieser Arbeit sollen Werkzeuge evaluiert werden, die genutzt werden können, 
 Zur Evaluation soll eine konkrete JavaScript-OpenSource-Anwendung genutzt werden.
 Im ersten Schritt muss einer Liste der möglichen Werkzeuge zur Migration erstellt werden.
 Dabei soll sowohl wissenschaftliche Literatur als auch OpenSource-Anwendungen berücksichtigt werden.
-
-
-
-
-
-
+ -->
 
 ## Programmanalyse
 
-### Entwicklung eines _Identifier Dictionaries_ für Haskell
+### Identifikation von schlecht gewählten Bezeichnern in Java
+
+Im Rahmen dieser Arbeit soll die Haskell-Anwendung [jlint](https://github.com/HS-Flensburg-PLTP/jlint) erweitert werden.
+Die Anwendung wurde im Rahmen von mehreren Bachelor-Projekten entwickelt und wird dazu genutzt, den Studierenden in der Veranstaltung [Algorithmen](https://hs-flensburg-algo.github.io) Rückmeldung zur Code-Qualität zu geben.
+Im Rahmen dieser Arbeit soll die Anwendung um Regeln erweitert werden, die sich auf die Qualität von Bezeichnern, also die Namen in einem Programm, beziehen.
+In den letzten Jahren wurden manuell Rückmeldungen zu schlecht gewählten Bezeichnern gegeben, etwa wenn ein Attribut den Namen `array` trug aber eine Liste enthielt.
+Diese manuellen Anmerkungen sollen evaluiert und wiederkehrende Muster in Form von Regeln implementiert werden.
+
+Schlechte Bezeichner dieser Art werden in der Literatur auch als _Linguistic Anti-Pattern_ bezeichnet.
+Im Rahmen der Arbeit sollen daher wissenschaftliche Publikationen aus diesem Bereich evaluiert werden und ggf. Anti-Pattern als Regeln in [jlint](https://github.com/HS-Flensburg-PLTP/jlint) implementiert werden.
+Einen Einstieg bietet die Publikation [A New Family of Software Anti-Patterns: Linguistic Anti-Patterns](https://citeseerx.ist.psu.edu/document?repid=rep1&type=pdf&doi=901209b3a70e7e46a477f5457e7ba687f0defc4f).
+
+**Voraussetzungen:** Grundlegende Kenntnisse in einer funktionalen Programmiersprache  
+**Geeignet als:** Bachelorarbeit
+
+
+### Entwicklung eines _Identifier Dictionaries_ in Haskell
 
 Die Publikation [Concise and consistent naming](https://wwwbroy.in.tum.de/publ/papers/deissenboeck_pizka_identifier_naming.pdf) stellt das Konzept eines _Identifier Dictionaries_ vor.
-Diese Anwendung sammelt die Bezeichner, die in einem Software-Projekt verwendet werden und listet sie auf.
+Diese Anwendung sammelt die Bezeichner, die in einem Software-Projekt verwendet werden und listet sie zusammen mit ihrem Typ auf.
 Die Anwendung soll dabei helfen, ungenaue oder inkonsistente Benennungen zu erkennen.
 
 In dieser Arbeit soll eine vergleichbare Anwendung für die Programmiersprache Haskell entwickelt werden.
@@ -280,17 +326,26 @@ Um dies zu erreichen, muss die Haskell-Anwendung inklusive der Auflösung von Ab
 Es soll prototypisch ein Ansatz für ein solches _Identifier Dictionary_ entwickelt werden.
 Zu diesem Zweck werden Hie-Dateien verwendet.
 Der Haskell-Compiler ist in der Lage, [Hie-Dateien](https://www.haskell.org/ghc/blog/20190626-HIEFiles.html) zu erzeugen.
-Bei diesen Dateien handelt es sich um Beschreibungen des Interface eines Moduls, die zum Beispiel für IDE-Unterstützungen verwendet werden.
+Bei diesen Dateien handelt es sich um Beschreibungen des Interface eines Moduls.
+Diese Dateien werden zum Beispiel verwendet, um Funktionalitäten einer IDE für die Programmierung mit Haskell umzusetzen.
 Diese Hie-Dateien müssen für ein Projekt erzeugt und gelesen werden, um ein _Identifier Dictionary_ zu erzeugen.
 
 **Voraussetzungen:** Gute Kenntnisse in Haskell  
 **Geeignet als:** Bachelor- oder Masterarbeit
 
 
+<!-- ### Erweiterung des Elm-Compilers
+
+In dieser Arbeit soll eine
+
+Alternativ kann eine solche Anwendung auch für die Programmiersprache Elm entwickelt werden.
+In diesem Fall muss der [Compiler](https://github.com/elm/compiler) der Programmiersprache Elm verwendet werden, um ein Elm-Programm zu bauen  -->
+
+
 ### Redundante Fälle in `case`-Ausdrücken
 
-Um Studierenden Rückmeldungen zur Ihren Programmierabgaben in der Programmiersprache Elm zu geben, wird in einer Vorlesung die Bibliothek [elm-review](https://github.com/jfmengels/elm-review/tree/2.13.2) genutzt.
-In dieser Arbeit soll eine Regel für die Bibliothek `elm-review` entwickelt werden, die anmerkt, wenn ein Fall eines `case`-Ausdruckes redundant ist.
+Um Studierenden Rückmeldungen zu Ihren Programmierabgaben in der Programmiersprache Elm zu geben, wird in einer Vorlesung die Bibliothek [elm-review](https://github.com/jfmengels/elm-review) genutzt.
+In dieser Arbeit soll eine Regel für die Bibliothek [elm-review](https://github.com/jfmengels/elm-review) entwickelt werden, die anmerkt, wenn ein Fall eines `case`-Ausdruckes redundant ist.
 Ein Fall ist redundant, wenn man den Fall entfernen kann, ohne dass sich das Verhalten der Funktion verändert.
 Die folgende Definition enthält eine Regel, die redundant ist.
 
@@ -377,8 +432,8 @@ Wir erhalten somit `head :: snocList [] element`.
 
 ### Reimplementierungen erkennen
 
-Um Studierenden Rückmeldungen zur Ihren Programmierabgaben in der Programmiersprache Elm zu geben, wird die Bibliothek [elm-review](https://github.com/jfmengels/elm-review/tree/2.13.2) genutzt.
-In dieser Arbeit soll eine Regel für die Bibliothek `elm-review` entwickelt werden, die anmerkt, wenn eine Funktion eine Reimplementierung einer vordefinierten Funktion ist.
+Um Studierenden Rückmeldungen zu Ihren Programmierabgaben in der Programmiersprache Elm zu geben, wird die Bibliothek [elm-review](https://github.com/jfmengels/elm-review) genutzt.
+In dieser Arbeit soll eine Regel für die Bibliothek [elm-review](https://github.com/jfmengels/elm-review) entwickelt werden, die anmerkt, wenn eine Funktion eine Reimplementierung einer vordefinierten Funktion ist.
 
 Als Beispiel betrachten wir die folgende Funktion, die sich mithilfe von `List.map` implementieren lässt.
 
@@ -394,10 +449,10 @@ incAll list =
 ```
 
 Es ist relativ aufwändig, alle möglichen Varianten dieser Funktion mit der Funktion `List.map` zu vergleichen.
-Zum Beispiel nutzt die Funktion `incAll` im Unterschied zu `List.map` ein Unterstrich-_Pattern_.
+Zum Beispiel nutzt die Funktion `incAll` im Unterschied zu `List.map` ein Unterstrich\-_Pattern_.
 Außerdem prüft die Funktion `List.map` zuerst das _Pattern_ `[]`.
 Daher soll die zu prüfende Funktion zuerst normalisiert werden.
-Das heißt, zuerst wird das Unterstrich-_Pattern_ durch ein konkretes _Pattern_ ersetzt.
+Das heißt, zuerst wird das Unterstrich\-_Pattern_ durch ein konkrete _Pattern_ ersetzt.
 Wir erhalten also die folgende Definition.
 
 ```elm
@@ -411,7 +466,7 @@ incAll list =
             []
 ```
 
-Im nächsten Schritt werden die _Pattern_ in eine vorgegeben Reihenfolge gebracht und wir erhalten die folgende Definition.
+Im nächsten Schritt werden die _Pattern_ in eine vorgegebene Reihenfolge gebracht und wir erhalten die folgende Definition.
 
 ```elm
 incAll : List Int -> List Int
@@ -446,7 +501,7 @@ Als Beispiele für die Erkennung von Reimplementierungen können die Funktionen 
 **Geeignet als:** Bachelorarbeit
 
 
-### Feedback zu Mathematik-Aufgaben
+### Feedback zu Mathematikaufgaben
 
 Dieses Projekt ist einer Erweiterung des Projektes [Entwicklung einer Sprache für mathematische Beweise](#entwicklung-einer-sprache-für-mathematische-beweise).
 Wenn die Abgabe der mathematischen Beweise syntaktisch akzeptiert wird, sollten die Studierenden auch Rückmeldung zur Korrektheit der Abgabe erhalten.
@@ -454,12 +509,12 @@ Dazu soll der interaktive Theorembeweiser [Coq](https://coq.inria.fr) verwendet 
 Coq stellt eine Programmiersprache zur Verfügung, in der Beweise programmiert werden können.
 Das Web-Buch [Software Foundations](https://softwarefoundations.cis.upenn.edu/lf-current/toc.html) bietet eine Einführung in die Programmiersprache Coq.
 Das Buch führt aber sehr viel mehr Konzepte der Sprache ein als für die Bearbeitung des Themas benötigt werden.
-Um einen Beweis zu überprüfen, muss die eigene Beweissprache in ein Coq-Programm überführt werden.
+Um einen Beweis zu überprüfen, muss ein Programm in der Sprache, die in [Entwicklung einer Sprache für mathematische Beweise](#entwicklung-einer-sprache-für-mathematische-beweise) entwickelt wurde, in ein Coq-Programm übersetzt werden.
 Das Coq-Programm kann anschließend durch den Coq-Compiler auf Korrektheit überprüft werden.
 Wenn der Coq-Compiler das Programm akzeptiert, ist der Beweis korrekt.
 Im ersten Schritt muss erst einmal keine Rückmeldung gegeben werden, warum der Beweis falsch ist.
 
-Zu Anfang der Arbeit muss erst einmal eine Literaturrecherche zum Thema Vermittlung von mathematischen Fähigkeiten mithilfe von Theorembeweisern durchgeführt werden.
+Zu Anfang der Arbeit soll eine Literaturrecherche zum Thema Vermittlung von mathematischen Fähigkeiten mithilfe von Theorembeweisern durchgeführt werden.
 Einen guten Einstieg bietet [Waterproof: Educational Software for Learning How to Write Mathematical Proofs](https://arxiv.org/pdf/2211.13513).
 
 **Voraussetzungen:** Gute Kenntnisse in einer funktionalen Sprache, grundlegende mathematische Fähigkeiten  
@@ -468,7 +523,7 @@ Einen guten Einstieg bietet [Waterproof: Educational Software for Learning How t
 
 ## Web-Anwendungen
 
-### Regionale Rezepte
+<!-- ### Regionale Rezepte
 
 In dieser Arbeit soll ein Prototyp für eine Web-Anwendung für Rezepte mit regionalen Zutaten entwickelt werden.
 Der durchschnittlichen Bevölkerung ist heutzutage häufig gar nicht mehr klar, dass nicht jedes Lebensmittel zu jeder Jahreszeit in der Nähe angebaut werden kann.
@@ -495,12 +550,12 @@ Ggf. wäre es sinnvoll, um die Ernährung in der breiten Masse nachhaltiger zu g
 Das heißt, für eine Zutat wird dann angegeben, wo das Produkt in der Region erworben werden kann.
 Zu diesen Zweck soll es erst einmal eine Beispielregion, etwa Flensburg oder Kiel verwendet werden. -->
 
-Technologisch soll die Anwendung mit Elm im Frontend umgesetzt werden.
+<!-- Technologisch soll die Anwendung mit Elm im Frontend umgesetzt werden.
 Zu Beginn des Projektes sollen verschiedene Alternativen für die Umsetzung des Backends evaluiert werden.
 
 **Voraussetzungen:** Gute Kenntnisse in Elm  
 **Geeignet als:** Bachelor- oder Masterarbeit
-
+-->
 
 <!-- ### Priorities
 
@@ -526,8 +581,8 @@ Die Anwendung wird als _Single Page Application_, zum Beispiel mithilfe des Fram
 Neben der Entwicklung der Anwendung soll ein Schwerpunkt der Arbeit auf einem sehr benutzerfreundlichen _User Interface_ liegen.
 
 
-**Voraussetzungen:** Gute Kenntnisse in Elm  
-**Geeignet als:** Bachelorarbeit -->
+Zu Beginn des Projektes sollen verschiedene Alternativen für die Umsetzung des Backends evaluiert werden.
+-->
 
 
 <!-- ### Prove It
@@ -546,3 +601,31 @@ Das heißt, es müssen die notwendigen Informationen aus der Ausgabe des Compile
 
 In einer Erweiterung der Anwendung können Nutzer\*innen die Aufgaben textuell bearbeiten statt eine feste Anzahl von Optionen anzubieten.
 Das heißt, die Anwendung muss in der Lage sein, die Eingabe der Nutzer\*innen zu parsen und auf die Struktur eines typischen Beweise zu überprüfen. -->
+
+
+### Digitalisierung von Anträgen zur Anerkennung von Leistungen
+
+In dieser Arbeit soll ein Prototyp einer Web-Anwendung entwickelt werden, die genutzt werden kann, um Anträge auf die Anerkennung von Leistungen an anderen Hochschulen digital einzureichen.
+In einem Studierenden-Projekt wurde bereits ein erster Prototyp einer solchen Anwendung umgesetzt.
+Grundsätzlich soll die Anwendung neu entwickelt werden, ggf. kann aber das UI-Design oder das Datenmodell der bestehenden Anwendung übernommen werden.
+Zur Umsetzung der Anwendung soll ein einfaches REST-Backend und eine Frontend-Anwendung in Elm umgesetzt werden.
+Zu Beginn des Projektes sollen verschiedene Alternativen für die Umsetzung des Backends evaluiert werden.
+
+Zu Beginn des Projektes sollen verschiedene Alternativen für die Umsetzung des Backends evaluiert werden.
+
+**Voraussetzungen:** Gute Kenntnisse in Elm  
+**Geeignet als:** Bachelorarbeit
+
+
+### Digitalisierung der Semesterplanung
+
+Zur Verbesserung der Vorplanung eines Semesters soll ein Prototyp einer Web-Anwendung entwickelt werden, in der Dozent\*innen hinterlegen können, welche Lehrveranstaltungen sie im kommenden Semester planen.
+Dazu gibt die Anwendung eine Liste von möglichen Veranstaltungen vor, die durch die Prüfungsordnung vorgegeben werden.
+Die Nutzer\*innen können sich dann aus der Liste die Veranstaltungen zusammenstellen, die Sie im kommenden Semester planen.
+Im besten Fall ist die Anwendung im Anschluss in der Lage sehr einfache Analysen der Planung durchzuführen.
+Dazu gehört etwa die Analyse, welche Veranstaltungen aus der Prüfungsordnung noch nicht abgedeckt werden.
+Zu diesem Zweck muss in der Anwendung hinterlegt werden, wie viele Studierende in den verschiedenen Semestern in etwa erwartet werden.
+Ansonsten kann zum Beispiel nicht überprüft werden, ob die Anzahl der Labore oder die Anzahl der Wahlpflichtfächer ausreichend ist.
+
+**Voraussetzungen:** Gute Kenntnisse in Elm  
+**Geeignet als:** Bachelorarbeit
