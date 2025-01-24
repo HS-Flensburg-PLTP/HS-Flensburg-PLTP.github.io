@@ -109,7 +109,7 @@ Die Arbeit startet mit einer Einarbeitung in Konzepte wie [Parser](fundamentals.
 **Geeignet als:** Bachelor- oder Masterarbeit
 
 
-### Replikation einer Studie
+### Replikation einer Studie über Bezeichner in verschiedenen Programmiersprachen
 
 In dieser Arbeit soll die Studie [Meaningful Identifier Names: The Case of Single-Letter Variables](https://www.cs.huji.ac.il/w~feit/papers/SingleLetter17ICPC.pdf) repliziert werden.
 Die Studie untersucht, wie lang die Bezeichner in den Programmiersprachen C, Java, JavaScript, PHP, und Perl sind und wie häufig Einbuchstabenbezeichner sind.
@@ -127,6 +127,21 @@ Daher soll nach der Replikation insbesondere ein Konzept entwickelt werden, um m
 Die Arbeit startet mit einer Einarbeitung in Konzepte wie [Parser](fundamentals.md#parser), [abstrakter Syntaxbaum](fundamentals.md#abstrakter-syntaxbaum-ast) und die grundsätzliche Idee von _Repository Mining_-Studien.
 
 **Voraussetzungen:** Kenntnisse in Python  
+**Geeignet als:** Bachelorarbeit
+
+### Replikation einer Studie über Bezeichner in Java
+
+In dieser Arbeit soll die Studie [A Large-Scale Investigation of Local Variable Names in Java Programs: Is Longer Name Better for Broader Scope Variable?](https://link.springer.com/chapter/10.1007/978-3-030-85347-1_35) repliziert werden.
+Die Studie untersucht, wie Bezeichner in Java-Programmen vergeben werden.
+Dazu wurden 1000 GitHib-Repositories analysiert.
+Die Studie gibt an, dass 637 077 lokale Variablen aus 472 665 Java-Quelldateien extrahiert wurden.
+Das wären etwa 1,3 lokale Variable pro Java-Quelldatei.
+Die Daten der Studie stehen unter <https://bit.ly/3xLuaLK> zur Verfügung.
+Bei einer ersten Sichtung der Daten ist bereits aufgefallen, dass gegen die Aussage "The local variables include the formal arguments (parameters) of methods." aus der Publikation anscheinend keine Bezeichner von Methodenparametern gesammelt werden.
+Daher soll die Sammlung der Daten reproduziert und überprüft werden.
+Die Anwendung, welche zum Sammeln der Daten genutzt wurde, wurde in Java geschrieben und steht ebenfalls unter https://bit.ly/3xLuaLK zur Verfügung.
+
+**Voraussetzungen:** Gute Kenntnisse in Java  
 **Geeignet als:** Bachelorarbeit
 
 
