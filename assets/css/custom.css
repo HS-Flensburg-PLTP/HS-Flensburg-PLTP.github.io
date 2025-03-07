@@ -1,3 +1,8 @@
+/* Because of many items in the navigation the header is larger than usual */
+.page-content {
+    padding-top: 150px;
+}
+
 figcaption {
     text-align: center;
 }

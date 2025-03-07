@@ -7,7 +7,8 @@ description: >
 
 markdown: kramdown
 remote_theme: jekyll/minima
-header_pages:
-  - student-projects.md
-  - lectures.md
-  - certification.md
+minima:
+  nav_pages:
+    - topics.md
+    - lectures.md
+    - certification.md
