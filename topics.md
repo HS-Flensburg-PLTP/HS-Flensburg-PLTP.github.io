@@ -10,6 +10,7 @@ Falls eines der Themen als Bachelor- oder Masterprojekt durchgeführt werden sol
 Falls Sie sich für andere Themen aus den Bereichen moderne Methoden der Softwareentwicklung, Compilerbau, Programmiersprachen oder Algorithmen interessieren, wenden Sie sich bitte einfach per Mail an [mich](mailto:jan.christiansen@hs-flensburg.de).
 
 <!-- - [Allgemeine Informationen zu Abschlussarbeiten](theses.md) -->
+- [FAQ zu Bachelor-Projekten](projects.md)
 - [Allgemeine Informationen zur Arbeit mit Haskell](haskell.md)
 
 
