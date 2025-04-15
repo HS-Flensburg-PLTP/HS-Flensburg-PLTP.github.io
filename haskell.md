@@ -3,7 +3,7 @@ layout: post
 title: "Arbeit mit Haskell"
 ---
 
-Auf dieser Seite werden die Werkzeuge vorgestellt, die zur Arbeit mit Haskell im Rahmen eines Projektes oder einer Abschlussarbeit verwendet werden sollten.
+Auf dieser Seite werden die Werkzeuge vorgestellt, die zur Arbeit mit Haskell im Rahmen eines Projektes oder einer Abschlussarbeit verwendet werden.
 
 ## GHCup
 
@@ -18,6 +18,9 @@ Mithilfe von GHCup kann man mehrere Versionen eines Werkzeuge parallel installie
 Das heißt, es können zum Beispiel mehrere Versionen der Anwendung cabal installiert sein.
 Mit GHCup wird dann eine dieser Versionen als aktuell verwendete Version ausgewählt.
 
+Bitte im ersten Schritt mittels GHCup die empfohlenen Versionen von GHC, cabal, Stack und HLS installieren.
+
+
 ### GHC
 
 Um Haskell-Code in Maschinencode zu übersetzen, wird ein Compiler benötigt.
@@ -31,7 +34,8 @@ Der Haskell Language Server (HLS) wird genutzt, um in einer IDE Dienste wie _cod
 
 Cabal und Stack sind _build tools_.
 Das heißt, diese Werkzeuge werden genutzt, um die Abhängigkeiten einer Haskell-Anwendung aufzulösen und ein Projekt zu bauen.
-Cabal ist ein sehr grundlegendes Werkzeug, das in der Lage, auf Grundlage von `cabal`-Dateien Haskell-Projekte zu bauen.
+Cabal ist ein sehr grundlegendes Werkzeug, das auf Grundlage `.cabal`-Dateien Haskell-Projekte baut.
+In der `.cabal`-Datei ist definiert, welche _build targets_ es gibt und welche Abhängigkeiten diese jeweils haben.
 
 Stack fügt eine weitere Abstraktionsschicht hinzu und verwendet im Hintergrund cabal.
 Statt eine global installierte Version des GHC zu verwenden, ist Stack in der Lage, für ein Haskell-Projekt eine lokale Version des GHC zu verwenden.
@@ -44,18 +48,21 @@ Dieser Ansatz kann Probleme mit Paketen, die nicht miteinander kompatibel sind, 
 
 ### VSCode-Erweiterung / HLS-Integration
 
-Es gibt eine VSCode-Erweiterung namens Haskell von den Entwicklern des HLS um diesen in VSCode zu verwenden.
+Es gibt eine VSCode-Erweiterung namens Haskell von den Entwicklern des HLS, um diesen in VSCode zu verwenden.
 Dafür den folgenden Schritten folgen:
 
-1. Sicherstellen HLS ist installiert, falls dies nicht zutrifft, dies zum Beispiel mittels `ghcup tui` nachholen.
+1. Sicherstellen, dass HLS installiert ist.
+   Falls es nicht installiert ist, das Werkzeug mittels `ghcup tui` installieren.
 2. VSCode-Erweiterung `Haskell` installieren.
 
 ### Ormolu
 
-[Ormolu](https://github.com/tweag/ormolu) ist ein Formatierer für Haskell-Quellcode.
-Formatierer sorgen dafür, dass Code einheitlich formatiert wird.
+[Ormolu](https://github.com/tweag/ormolu) ist ein _auto formatter_ für Haskell-Quellcode.
+_Auto formatter_ sorgen dafür, dass Code einheitlich formatiert wird.
 Die VSCode-Erweiterung unterstützt Ormolu direkt und bringt auch eine Version von Ormolu direkt mit.
 Ormolu muss also nicht separat installiert werden.
+
+Der _auto formatter_ Ormolu sollte zur Formatierung von Haskell-Quellcode verwendet werden.
 
 ### HLint
 
@@ -67,7 +74,7 @@ In VSCode werden Code-Stellen, zu denen HLint Vorschläge hat, farblich unterstr
 Die Stellen werden auch unter "Probleme" aufgelistet.
 Es gibt in VSCode drei Möglichkeiten, um die durch HLint vorgeschlagenen Änderungen am Code umzusetzen.
 
-1. Über die betroffene Stelle im Code hovern.
+1. Über die betroffene Stelle im Code _hovern_.
    Es öffnet sich ein Dialog, der das Problem zeigt.
    Auf "schnelle Problembehandlung" klicken.
    Den gewünschten Vorschlag auswählen.
