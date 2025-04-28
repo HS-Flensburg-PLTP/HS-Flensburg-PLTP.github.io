@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "FAQ zu Bachelor-Projekten"
-date: 2025-03-06
+date: 2025-04-28
 ---
 
 Auf dieser Seite werden wiederkehrende Fragen zum Bachelorprojekt in der Angewandten Informatik beantwortet.
@@ -27,6 +27,12 @@ Auf dieser Seite werden wiederkehrende Fragen zum Bachelorprojekt in der Angewan
 - Das Projekt wird wie andere Prüfungsleistungen beim Prüfungsmanagement angemeldet.
   Das heißt, das Projekt wird zuerst bearbeitet und erst im Anschluss angemeldet.
   In welchem Prüfungszeitraum das Projekt genau angemeldet wird, muss mit der betreuenden Person abgesprochen werden.
+
+#### Wann startet ein Projekt?
+
+- Da das Projekt erst erst im Anschluss angemeldet wird, kann man formal zu jedem beliebigen Zeitpunkt starten.
+  Im Normalfall läuft ein Projekt aber semesterbegleitend und startet zu Beginn des Semesters.
+  Daher sollte man im besten Fall frühzeitig vor dem Beginn des Semesters eine betreuende Person gefunden haben.
 
 #### Wie findet man eine Gruppe?
 
