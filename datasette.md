@@ -35,7 +35,7 @@ Sollte die CSV-Datei bereits eine Spalte besitzen, welche die Daten eindeutig di
 Weitere Informationen zum Importieren/Konvertieren einer CSV-Datei findet man in der [Dokumentation zu `sqlite-utils`](https://sqlite-utils.datasette.io/en/stable/cli.html#cli-insert-csv-tsv).
 
 
-## Daten (als JSON) bereitstellen
+## JSON bereitstellen
 
 Nachdem die SQLite-Datei erstellt wurde, kann man sie mit `Datasette` lokal hosten.
 Die Daten können mit Folgendem bereitgestellt werden.
@@ -77,3 +77,7 @@ Unter der URL `http://127.0.0.1:8001/test_db/test_tabelle.json?_shape=array` erh
 
 In diesem Beispiel hat die CSV-Datei keine Spalte mit IDs bereitgestellt, weshalb `sqlite-utils` eigenständig eine entsprechende Spalte hinzugefügt hat.
 Weitere JSON-Darstellungsarten werden in der [Dokumentation von Datasette](https://docs.datasette.io/en/stable/json_api.html#different-shapes) beschrieben.
+
+Datasette verwendet standardmäßig [Pagination](https://docs.datasette.io/en/stable/json_api.html#pagination) und zeigt daher nur die ersten 100 Datensätze an.
+Der _Response Header_ enthält einen Link in der Form `<http://127.0.0.1:8001/test_db/test.json?_shape=array&_next=200>; rel="next"`, der angibt, unter welcher URL die nächste Seite erreichbar ist.
+Falls dieser _Response Header_ nicht existiert, ist die letzte Seite der Daten erreicht.
