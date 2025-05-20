@@ -4,6 +4,10 @@ title: Vorlesungen
 date: 2024-05-06
 ---
 
+## Sommersemester 2025
+
+- [Deklarative Software-Technologien](2025/declarative-software-technologies.md)
+
 
 ## Sommersemester 2024
 
