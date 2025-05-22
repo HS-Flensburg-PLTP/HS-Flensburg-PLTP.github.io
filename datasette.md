@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "CSV-Dateien lokal hosten"
-date: 2025-05-20
+date: 2025-05-22
 ---
 
 Zum Bereitstellen einer CSV-Datei im JSON-Format werden zwei Tools benötigt:
@@ -38,12 +38,14 @@ Weitere Informationen zum Importieren/Konvertieren einer CSV-Datei findet man in
 ## JSON bereitstellen
 
 Nachdem die SQLite-Datei erstellt wurde, kann man sie mit `Datasette` lokal hosten.
-Die Daten können mit Folgendem bereitgestellt werden.
+Die Daten können mit folgendem Befehl bereitgestellt werden.
 
 ```
-datasette serve <Dateiname/Verzeichnis>
+datasette serve --cors <Dateiname/Verzeichnis>
 ```
 
+Die Option `--cors` sorgt dafür, dass `datasette` den _Header_ `Access-Control-Allow-Origin: *` setzt.
+Dadurch erlaubt der Browser einen Zugriff auf die Daten aus einer Elm-Frontend-Anwendung heraus.
 `<Dateiname/Verzeichnis>` steht für die SQLite-Datei oder ein Verzeichnis, das nur SQLite-Dateien enthält, welches man bereitstellen will.
 Der Befehl stellt eine Weboberfläche bereit, mit der man durch die Daten navigieren kann.
 Wenn die SQLite-Datei `test_db` heißt und die Tabelle `test_tabelle`, kann man zum Beispiel unter `http://127.0.0.1:8001/test_db/test_tabelle` diese Weboberfläche erreichen.
