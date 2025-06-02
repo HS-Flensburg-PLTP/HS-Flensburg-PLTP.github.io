@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Deklarative Software-Technologien"
-date: 2025-05-14
+date: 2025-06-02
 ---
 
 
@@ -44,8 +44,18 @@ Es können zum Beispiel Daten aus _Open Data_-Quellen verwendet werden.
 
 #### Open Data
 
-Es gibt viele Quellen für offene Daten, etwa von staatlichen Stellen ([Bundesstelle für Open Data](https://github.com/bundesAPI), [Open Data Schleswig-Holstein](https://www.schleswig-holstein.de/DE/Landesregierung/Themen/Digitalisierung/openData/openData_node.html), [Das Datenportal für Deutschland](https://www.govdata.de), [Offenes Datenportal der EU](https://data.europa.eu/euodp/de/data/), [Das Datenportal der Deutschen Bahn AG](https://data.deutschebahn.com), [Datenportal zum Thema Mobilität](https://mobilithek.info)) aus der Wissenschaft ([Deutscher Wetterdienst](https://opendata.dwd.de)) oder aus aus dem Bereich Kultur ([Coding da Vinci](https://codingdavinci.de/de/daten)).
-Die meisten dieser Daten stehen in Form von CSV- oder Excel-Dateien zur Verfügung.
+Es gibt viele Quellen für offene Daten, etwa von staatlichen Stellen ([Bundesstelle für Open Data](https://github.com/bundesAPI), [Open Data Schleswig-Holstein](https://www.schleswig-holstein.de/DE/Landesregierung/Themen/Digitalisierung/openData/openData_node.html), [Das Datenportal für Deutschland](https://www.govdata.de), [Offenes Datenportal der EU](https://data.europa.eu/euodp/de/data/), [Das Datenportal der Deutschen Bahn AG](https://data.deutschebahn.com)) aus der Wissenschaft ([Deutscher Wetterdienst](https://opendata.dwd.de)) oder aus aus dem Bereich Kultur ([Coding da Vinci](https://codingdavinci.de/de/daten)).
+Da es seinen Sitz in Flensburg hat, soll hier explizit das Kraftfahrtbundesamt (KBA) als Quelle für offene Daten erwähnt werden.
+Das Bundesministerium für Verkehr hat mit der [Mobilithek](https://mobilithek.info/offers) einen zentralen nationalen Zugangspunkt für Mobilitätsdaten geschaffen.
+Das KBA stellt dort ebenfalls seine Open Data-Angebote zur Verfügung, zum Beispiel zu den folgenden Aspekten:[^1]
+- Fahrzeugbestände und -zulassungen: Aufschlüsselung nach Bundesländern, Kraftstoffarten, Emissionsklassen etc.
+- Typgenehmigungen und Fahrzeugdaten: CO₂-Werte, Verbrauchsdaten, technische Parameter
+- Statistische Veröffentlichungen zu den zentralen Registern der KBA:
+    - ZFZR: Zentrales Fahrzeugregister
+    - ZFER: Fahrerlaubnisregister
+    - FAER: Fahreignungsregister (Verkehrsverstöße)
+
+Die meisten der Daten auf _Open Data_-Plattformen stehen in Form von CSV- oder Excel-Dateien zur Verfügung.
 Um CSV-Dateien bereitzustellen, kann die Anwendung [Datasette](../datasette.md) genutzt werden.
 Falls nur eine Excel-Datei mit den Daten zur Verfügung steht, muss die Datei ggf. einmal in eine CSV-Datei überführt werden.
 Die Daten müssen nicht wirklich öffentlich zur Verfügung gestellt werden.
@@ -53,6 +63,8 @@ Es reicht, wenn für die Entwicklung und zum Testen ein lokaler Server gestartet
 Bitte geben Sie später bei der Entwicklung in einer README-Datei an, welche Schritte ausgeführt werden müssen, um die Anwendung zu testen.
 In den _Open Data_-Plattformen finden sich auch Daten in Form von anderen Formaten, etwa als PDF-Dateien.
 Diese Daten können natürlich auch in geeigneter Form in die Anwendung eingebunden werden.
+
+
 
 #### Open APIs
 
@@ -80,6 +92,8 @@ Viele Daten können auch in Form einer Karte visuell aufbereitet werden.
 Als Beispiel sei hier eine [Karte mit Denkmälern in Schleswig-Holstein](https://denkmalkarte.oklabflensburg.de).
 genannt.
 Daten können aber auch vergleichsweise einfach interessant visuell aufbereitet werden, wie etwa in der Anwendung zur [Trinkwasserqualität in der Region Heilbronn](https://opendatalab.de/projects/trinkwasser/).
+
+Mit dem neuen [Statistikportal des KBA](https://das-kba-statistikportal.hub.arcgis.com/) werden Inhalte aus den Themenbereichen Kraftfahrzeuge, Kraftfahrende und Kraftverkehr interaktiv und dynamisch dargestellt.
 
 #### Interaktive Erklärungen
 
@@ -126,3 +140,5 @@ Dieser eignet sich aber nicht mehr, wenn das Spiel eine höhere Aktualisierungsr
 In diesen Fällen sollten eher `onAnimationFrame` bzw. `onAnimationFrameDelta` ([Browser.Events](https://package.elm-lang.org/packages/elm/browser/latest/Browser-Events)) genutzt werden.
 Hier wird die Aktualisierung mit dem Neuzeichnen des Browserfensters synchronisiert.
 Weitere Hintergrundinformationen findet man, wenn man nach der entsprechenden JavaScript-Funktion `requestAnimationFrame` sucht.
+
+[^1]: Das Forschungsdatenzentrum des KBA bietet auch (anonymisierte) Mikrodaten für wissenschaftliche Zwecke an.
