@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Arbeit mit Haskell"
+date: 2025-06-06
 ---
 
 Auf dieser Seite werden die Werkzeuge vorgestellt, die zur Arbeit mit Haskell im Rahmen eines Projektes oder einer Abschlussarbeit verwendet werden.
@@ -82,3 +83,61 @@ Es gibt in VSCode drei Möglichkeiten, um die durch HLint vorgeschlagenen Änder
    Es erscheint ein Icon am linken Rand, dieses anklicken um eine Liste an Vorschlägen zu öffnen.
    Einen von den Vorschlägen auswählen.
 3. Unter "Probleme" den Eintrag auswählen und auf das Glühbirnen-Icon klicken und die gewünschte Aktion auswählen.
+
+
+## Datentypen für Zeichenketten
+
+In Haskell gibt es drei Datentypen zur Arbeit mit Zeichenketten: `String`, `Text` und `ByteString`.
+Hier wird ganz kurz erläutert, wie man diese Datentypen untereinander konvertieren kann.
+Der Datentyp `String` ist der ursprüngliche Datentyp zur Darstellung von Zeichenketten in Haskell.
+Dabei handelt es sich um ein Typsynonym für `[Char]`, also eine Liste von Zeichen.
+Diese Darstellung ist bei längeren Zeichenketten recht ineffizient, da durch die Liste eine vergleichsweise teure Zeigerstruktur im Speicher angelegt wird.
+Um dieses Problem zu umgehen wurden die Typen `Text` und `ByteString` von Bibliotheken eingeführt.
+Der Typ `Text` ist eine speichereffizientere Darstellung von Zeichenketten.
+Beim Typ `ByteString` handelt es sich eigentlich nicht um eine Darstellung von Zeichenketten, sondern um die rohen binären Daten dahinter.
+Wenn man einen `ByteString` in Form von Zeichen lesen möchte, muss man daher angeben, wie die binären Daten, interpretiert werden sollen.
+Man muss also angeben, wie die Bytes in Zeichen umgewandelt werden.
+
+Für die späteren Code-Beispiele nutzen wir die folgenden Importe.
+
+```haskell
+import Data.Text (Text)
+import qualified Data.Text as Text
+import qualified Data.Text.Encoding as Text.Encoding
+import Data.ByteString (ByteString)
+```
+
+Die folgende Tabelle gibt an, wie die verschiedenen Datentypen ineinander konvertiert werden können.
+Wenn man einen `ByteString` in einem `String` konvertieren möchte, muss man den Umweg über den Datentyp `Text` nehmen, also zwei der Funktionen nacheinander anwenden.
+
+| Von          | Nach         | Funktion                        |
+| ------------ | ------------ | ------------------------------- |
+| `String`     | `Text`       | `Text.pack`                     |
+| `Text`       | `String`     | `Text.unpack`                   |
+| `ByteString` | `Text`       | `Text.Encoding.decodeUtf8`      |
+| `Text`       | `ByteString` | `Text.Encoding.encodeUtf8`      |
+
+Neben den standardmäßig strikten Implementierungen von `Text` und `ByteString` stellen die Bibliotheken noch _lazy_ Varianten dieser Datentypen zur Verfügung.
+Die _lazy_ Datentypen heißen auch `Text` und `ByteString`, stammen aber aus anderen Modulen, was leicht zu Verwirrung führen kann, wenn Typfehler auftreten.
+
+Für die Arbeit mit den _lazy_ Varianten nutzen wir die folgenden Importe.
+
+```haskell
+import qualified Data.Text.Lazy as Lazy (Text)
+import qualified Data.Text.Lazy as Text.Lazy
+import qualified Data.Text.Lazy.Encoding as Text.Lazy.Encoding
+import qualified Data.ByteString.Lazy as Lazy (ByteString)
+```
+
+Die folgende Tabelle gibt an, wie die _lazy_ Varianten ineinander und in die strikten Varianten konvertiert werden können.
+
+| Von               | Nach              | Funktion                        |
+| ----------------- | ----------------- | ------------------------------- |
+| `String`          | `Lazy.Text`       | `Text.Lazy.pack`                |
+| `Lazy.Text`       | `String`          | `Text.Lazy.pack`                |
+| `Lazy.ByteString` | `Lazy.Text`       | `Text.Lazy.Encoding.decodeUtf8` |
+| `Lazy.Text`       | `Lazy.ByteString` | `Text.Lazy.Encoding.encodeUtf8` |
+| `Text`            | `Lazy.Text`       | `Text.Lazy.fromStrict`          |
+| `Lazy.Text`       | `Text`            | `Text.Lazy.toStrict`            |
+| `ByteString`      | `Lazy.ByteString` | `ByteString.fromStrict`         |
+| `Lazy.ByteString` | `ByteString`      | `ByteString.toStrict`           |
