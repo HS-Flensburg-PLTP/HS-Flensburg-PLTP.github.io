@@ -105,6 +105,7 @@ import Data.Text (Text)
 import qualified Data.Text as Text
 import qualified Data.Text.Encoding as Text.Encoding
 import Data.ByteString (ByteString)
+import qualified Data.ByteString as ByteString
 ```
 
 Die folgende Tabelle gibt an, wie die verschiedenen Datentypen ineinander konvertiert werden können.
@@ -127,6 +128,7 @@ import qualified Data.Text.Lazy as Lazy (Text)
 import qualified Data.Text.Lazy as Text.Lazy
 import qualified Data.Text.Lazy.Encoding as Text.Lazy.Encoding
 import qualified Data.ByteString.Lazy as Lazy (ByteString)
+import qualified Data.ByteString.Lazy as ByteString.Lazy
 ```
 
 Die folgende Tabelle gibt an, wie die _lazy_ Varianten ineinander und in die strikten Varianten konvertiert werden können.
