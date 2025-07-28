@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Deklarative Software-Technologien"
-date: 2025-06-02
+date: 2025-07-28
 ---
 
 
@@ -124,21 +124,7 @@ Alternativ können auch mehrere Quellen zu einem ähnlichen Thema zu einer Anwen
 
 ### Technische Aspekte
 
-In diesem Abschnitt werden ein paar eher technische Aspekte der Abschlussprojekte diskutiert, die berücksichtigt werden sollten.
+Im Kapitel [Weitere Aspekte einer Elm-Anwendung](https://hs-flensburg-dst.github.io/other-elm-topics.html) im Skript finden sich noch ein paar technische Aspekte, die bei der Umsetzung einer größeren Elm-Anwendung relevant sein könnten.
 
-#### Umsetzung eines Spiels
-
-Bei der Umsetzung eines Spiels sind einige weitere Aspekte zu berücksichtigen, von denen einige hier erwähnt werden sollen.
-Zuerst sollte man sich Gedanken darüber machen, welche Technologie zur Darstellung genutzt wird.
-Im Wesentlichen stehen SVG, Canvas und WebGL zur Verfügung.
-Diese Ansätze haben verschiedene Vor- und Nachteile, die universell, also zum Beispiel auch in JavaScript, gültig sind.
-Unter [elm games](https://github.com/rofrol/elm-games) finden sich einige in Elm implementierte Spiele.
-Dort können Sie sich zum Beispiel anschauen, welche Technologien/Bibliotheken von ähnlichen Spielen verwendet werden.
-
-Für die Implementierung der Snake-Anwendung wurde ein Timer verwendet.
-Dieser eignet sich aber nicht mehr, wenn das Spiel eine höhere Aktualisierungsrate hat.
-In diesen Fällen sollten eher `onAnimationFrame` bzw. `onAnimationFrameDelta` ([Browser.Events](https://package.elm-lang.org/packages/elm/browser/latest/Browser-Events)) genutzt werden.
-Hier wird die Aktualisierung mit dem Neuzeichnen des Browserfensters synchronisiert.
-Weitere Hintergrundinformationen findet man, wenn man nach der entsprechenden JavaScript-Funktion `requestAnimationFrame` sucht.
 
 [^1]: Das Forschungsdatenzentrum des KBA bietet auch (anonymisierte) Mikrodaten für wissenschaftliche Zwecke an.
