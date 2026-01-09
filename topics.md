@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Abschlussarbeiten/Projekte
-date: 2025-01-20
+date: 2026-01-06
 ---
 
 Die hier aufgeführten Bachelor- und Masterarbeiten können in Absprache auch in Form von Bachelor- bzw. Masterprojekten bearbeitet werden.
@@ -10,76 +10,11 @@ Falls eines der Themen als Bachelor- oder Masterprojekt durchgeführt werden sol
 Falls Sie sich für andere Themen aus den Bereichen moderne Methoden der Softwareentwicklung, Compilerbau, Programmiersprachen oder Algorithmen interessieren, wenden Sie sich bitte einfach per Mail an [mich](mailto:jan.christiansen@hs-flensburg.de).
 
 <!-- - [Allgemeine Informationen zu Abschlussarbeiten](theses.md) -->
+
 - [FAQ zu Bachelor-Projekten](projects.md)
 - [Allgemeine Informationen zur Arbeit mit Haskell](haskell.md)
 
-
-<!-- ## Design von Programmiersprachen -->
-
-
-<!-- ### Freie Theoreme in Java
-
-Ein [freies Theorem](http://www.cs.sfu.ca/CourseCentral/831/burton/Notes/July14/free.pdf) ist eine Aussage über eine Funktion/Methode, die allein an Hand des Typs der Funktion/Methode getroffen werden kann.
-Als Beispiel betrachten wir die Signatur der folgenden Haskellfunktion.
-
-```haskell
-foo :: [a] -> [a]
-```
-
-Obwohl wir nur den Typ der Funktion kennen und nicht die konkrete Implementierung, muss diese Funktion sich an gewissen Regeln halten.
-Das freie Theorem für diese Funktion sagt aus, dass für jede Liste `list` gilt, dass `map f (foo list)` das gleiche Ergebnis liefert wie der Aufruf `foo (map f list)`.
-Das heißt, es macht keinen Unterschied, ob wir `map` auf das Argument der Funktion oder das Ergebnis der Funktion anwenden.
-Gesetze dieser Art kann man für jede polymorphe Funktion herleiten.
-Während die Gesetzmäßigkeit für `foo` recht einfach wirkt, kann man bei komplexeren Typen erstaunlich komplexe Aussagen über eine Funktion ableiten.
-
-Diese Form der Gesetzmäßigkeit gilt nicht nur in Sprachen wie Haskell, sondern auch in anderen Programmiersprachen die Polymorphismus/Generics zur Verfügung stellen.
-Eine Einführung zu freien Theoremen im Kontext von Java bietet zum Beispiel [dieser Vortrag](http://data.tmorris.net/talks/yow-west-2016/1d388b6263e7cbeedfbea224997648daa1d7862d/parametricity.pdf).
-Freie Theoreme basieren auf der Grundidee, dass man keinen Wert von einem polymorphen Typ erfinden kann.
-Die Funktion `foo` kann in der Ergebnisliste zum Beispiel kein neues Element hinzufügen, die Funktion kann eigentlich nur die Elemente der Argumentliste verwenden, um die Ergebnisliste zu konstruieren.
-
-Je nach dem, welche Sprachkonstrukte eine Programmiersprache zur Verfügung stellt, sind freie Theoreme nur noch in eingeschränkter Form gültig.
-So können zum Beispiel Sprachfeatures wie Typumwandlung oder Typprüfung dafür sorgen, dass freie Theoreme nur mit Einschränkungen gültig sind.
-In dieser Arbeit soll eine Fallstudie über Sprachfeatures in Java gemacht werden.
-Dabei soll untersucht werden, bei der Verwendung von welchen Sprachfeatures in Java freie Theoreme nur noch unter Einschränkungen gültig sind.
-
-**Voraussetzungen:** gute Kenntnisse der Programmiersprache Java, Grundkenntnisse in Haskell  
-**Geeignet als:** Bachelor- oder Masterarbeit -->
-
-
 ## Mining Software Repositories
-
-
-<!-- ### Programmierstil in Elm
-
-In dieser Arbeit soll der Programmierstil analysiert werden, der in Elm-Projekten bei GitHub verwendet wird.
-Es existiert bereits eine Haskell-Anwendung, die Elm-Projekte bei GitHub sammelt und Kennwerte für diese Anwendungen erhebt, zum Beispiel die Anzahl der Module oder die durchschnittliche Anzahl an Definitionen pro Modul.
-In diesem Projekt sollen Eigenschaften der Projekte analysiert werden, die sehr Elm-spezifisch sind.
-Zum Beispiel kann überprüft werden, wie die Projekte _underscore pattern_ einsetzen und ob Funktionen immer eta-reduziert sind.
-Oder es kann überprüft werden, in welcher Reihenfolge die Definitionen in einem Modul sortiert sind, also zum Beispiel zuerst alle Datentypdefinitionen und dann alle Funktionsdefinitionen oder gemischt.
-Es kann aber auch geprüft werden, in welcher Reihenfolge das _Pattern Matching_ der `update`-Funktion durchgeführt wird, also zuerst _Pattern Matching_ auf `Model` und anschließend auf `Msg` oder andersherum.
-Oder es kann überprüft werden, wie Funktionen genannt werden, die eine `Html`-Struktur liefern, also aus `view` heraus aufgerufen werden.
-
-Im ersten Schritt muss in dieser Arbeit definiert werden, welche Eigenschaften evaluiert werden sollen und wie diese Eigenschaften bewertet, gruppiert werden.
-Danach muss die jeweilige Analyse in das Bestehende Tool integriert werden.
-
-**Voraussetzungen:** gute Kenntnisse in Elm  
-**Geeignet als:** Bachelor- oder Masterarbeit -->
-
-
-<!-- ### Durchführung einer Meta-Studie
-
-Im Rahmen dieser Arbeit soll eine sogenannte Meta-Studie durchgeführt werden.
-Das heißt, es sollen Informationen aus publizierten Studien gesammelt und aufbereitet werden.
-Es gibt zahlreiche wissenschaftliche Arbeiten zur Wahl von Bezeichnern in Programmiersprachen.
-Dabei gibt es zum Einen Studien, die anhand von Probanden testen, welche Art von Bezeichnern besonders schnell oder korrekt zu erinnern sind.
-Außerdem gibt es Studien, die Code daraufhin analysieren, welche Arten von Bezeichnern in Open-Source-Projekten in verschiedenen Programmiersprachen genutzt werden.
-Im Rahmen der Meta-Studie muss zuerst eine Strategie entwickelt werden, mit der relevante wissenschaftliche Arbeiten identifiziert werden.
-Dazu kann etwas auf Plattformen in wissenschaftlichen Arbeiten nach Schlüsselwörtern gesucht werden.
-Im nächsten Schritt müssen alle wissenschaftlichen Arbeiten durchgearbeitet und die wichtigsten Eigenschaften der Arbeiten extrahiert werden.
-
-**Voraussetzungen:** Sorgfältiges Arbeiten, gute englische Sprachkenntnisse  
-**Geeignet als:** Bachelorarbeit -->
-
 
 ### Empirische Untersuchung von Piping in Elm
 
@@ -109,6 +44,21 @@ Die Arbeit startet mit einer Einarbeitung in Konzepte wie [Parser](fundamentals.
 **Voraussetzungen:** Grundkenntnisse in Haskell  
 **Geeignet als:** Bachelor- oder Masterarbeit
 
+### Linguistische Muster in funktionalen Programmiersprachen
+
+In dieser Arbeit sollen die linguistischen Muster untersucht werden, die bei der Benennung von Funktionen und Konstanten in funktionalen Programmiersprachen genutzt werden.
+An dieser Stelle betrachten wir beispielhaft die funktionale Programmiersprache Elm, es wäre grundsätzlich aber auch möglich, eine andere oder mehrere Sprachen zu untersuchen.
+Es sollen Namen von Funktionen und Konstanten aus der Standardbibliothek von Elm betrachtet und überprüft werden, ob es Muster bei der Benennung gibt.
+In der Publikation [Cognitive Perspectives on the Role of Naming in Computer Programs](https://www.microsoft.com/en-us/research/wp-content/uploads/2016/02/ppig-naming.pdf) wurden im Fall von Java drei linguistische Muster bei der Benennung von Methoden identifiziert: imperative Verbalphrasen, indikative Verbalphrasen und Nominalphrasen.
+Diese linguistischen Muster werden auch für Elm-Funktionen verwendet.
+
+Im Rahmen dieser Arbeit soll überprüft werden, ob diese Muster in der gleichen Form in Elm wie in Java verwendet werden und ob es Muster in Elm gibt, die in Java keine Verwendung finden.
+Im Anschluss an die Identifikation von Mustern soll diese Hypothese im besten Fall mit Elm-Code von GitHub verifiziert werden.
+Dazu soll eine bestehende Anwendung genutzt werden, die Elm-Repositories von GitHub klont und analysiert.
+Im besten Fall soll zur Analyse der Bezeichner in Elm eine Bibliothek wie [Wordnet](https://wordnet.princeton.edu) verwendet werden.
+
+**Voraussetzungen:** Kenntnisse in einer funktionalen Sprache  
+**Geeignet als:** Bachelorarbeit
 
 ### Replikation einer Studie über Bezeichner in verschiedenen Programmiersprachen
 
@@ -135,16 +85,15 @@ Die Arbeit startet mit einer Einarbeitung in Konzepte wie [Parser](fundamentals.
 In dieser Arbeit soll die Studie [A Large-Scale Investigation of Local Variable Names in Java Programs: Is Longer Name Better for Broader Scope Variable?](https://link.springer.com/chapter/10.1007/978-3-030-85347-1_35) repliziert werden.
 Die Studie untersucht, wie Bezeichner in Java-Programmen vergeben werden.
 Dazu wurden 1000 GitHib-Repositories analysiert.
-Die Studie gibt an, dass 637 077 lokale Variablen aus 472 665 Java-Quelldateien extrahiert wurden.
+Die Studie gibt an, dass 637.077 lokale Variablen aus 472.665 Java-Quelldateien extrahiert wurden.
 Das wären etwa 1,3 lokale Variable pro Java-Quelldatei.
 Die Daten der Studie stehen unter <https://bit.ly/3xLuaLK> zur Verfügung.
 Bei einer ersten Sichtung der Daten ist bereits aufgefallen, dass gegen die Aussage "The local variables include the formal arguments (parameters) of methods." aus der Publikation anscheinend keine Bezeichner von Methodenparametern gesammelt werden.
 Daher soll die Sammlung der Daten reproduziert und überprüft werden.
-Die Anwendung, welche zum Sammeln der Daten genutzt wurde, wurde in Java geschrieben und steht ebenfalls unter https://bit.ly/3xLuaLK zur Verfügung.
+Die Anwendung, welche zum Sammeln der Daten genutzt wurde, wurde in Java geschrieben und steht ebenfalls unter <https://bit.ly/3xLuaLK> zur Verfügung.
 
 **Voraussetzungen:** Gute Kenntnisse in Java  
 **Geeignet als:** Bachelorarbeit
-
 
 ### Extraktion von Bezeichnern in F#
 
@@ -167,85 +116,7 @@ Die Arbeit startet mit einer Einarbeitung in die Grundlagen der Programmiersprac
 **Voraussetzungen:** Gute Kenntnisse in einer funktionalen Sprache  
 **Geeignet als:** Bachelor- oder Masterarbeit
 
-
-<!-- ### Web-Anwendung zur Datenvisualisierung
-
-In einer zuvor durchgeführten Abschlussarbeit wurden die Bezeichner in 200 Haskell-Projekten auf GitHub untersucht.
-In dieser Arbeit soll eine Web-Anwendung in Elm entwickelt werden, welche es Nutzern ermöglicht, diese Daten zu inspizieren.
-Die Ergebnisse der Analyse liegen in Form von CSV-Dateien vor.
-Im ersten Schritt muss ein Konzept entwickelt werden, wie die vorliegenden CSV-Dateien als Backend-Web-Anwendung zur Verfügung gestellt werden können.
-Die Daten können zum Beispiel mittels [Supabase](https://supabase.com) oder [PostgREST](https://postgrest.org) zur Verfügung gestellt werden.
-
-Es soll zum einen möglich sein, einfach die Rohdaten der verschiedenen Projekte zu inspizieren.
-Das heißt, es ist möglich, eine Liste aller Bezeichner eines Modules, eines Projektes einzusehen.
-Außerdem soll es möglich sein, sich Histogramme anzeigen zu lassen.
-Diese Histogramme sollen die Verteilung von Einbuchstabenbezeichnern angeben und die Verteilung der Länge von Bezeichnern.
-Die Publikation [Meaningful Identifier Names: The Case of Single-Letter Variables](https://www.cs.huji.ac.il/w~feit/papers/SingleLetter17ICPC.pdf) vermittelt einen Eindruck darüber, welche Histogramme auf jeden Fall pro Projekt und für die Gesamtdaten dargestellt werden sollten.
-Diese Daten können im ersten Schritt im Frontend erzeugt werden, müssen bei Performance-Problemen aber ggf. bereits im Backend zur Verfügung gestellt werden.
-
-Neben diesen Basisinformationen soll die Anwendung im besten Fall noch weitere Informationen zur Verfügung stellen, zum Beispiel die Namen von besonders langen Bezeichnern, aber auch Bezeichner, die besonders häufig vorkommen.
-
-**Voraussetzungen:** Gute Kenntnisse in Elm  
-**Geeignet als:** Bachelorarbeit -->
-
-
-<!-- ### Typinformationen für Elm-Projekte
-
-In dieser Arbeit soll eine bestehende Anwendung, die Elm-Projekte von GitHub sammelt und analysiert, verbessert werden.
-Die Anwendung sammelt die Variablennamen, die in Elm-Projekte verwendet werden.
-Um besser zu verstehen, nach welchen Regeln Programmierer\*innen Namen vergeben, sollen neben den Namen die Typen der Variablen gesammelt werden.
-Da Elm eine Programmiersprache mit Typinferenz ist, müssen die Elm-Projekte zu diesen Zweck gebaut werden.
-Das heißt, der Elm-Compiler wird für jedes Repo genutzt, um das Elm-Projekt zu bauen.
-Der Elm-Compiler legt Dateien an, in denen Informationen über die Typen von
-
-- den Elm-Compiler nutzen, um ein Projekt zu bauen
-- die `elmi`-Dateien auslesen, um die Typinformationen auszulesen
-- die Funktion https://github.com/elm/compiler/blob/2f6dd29258e880dbb7effd57a829a0470d8da48b/builder/src/Generate.hs#L191 liest die Typinformationen aus einer `elmi`-Datei aus
-- die Funktion liefert `Types (Map.Map ModuleName.Canonical Types_)`, wobei `Types_ ` Informationen
-- die Datei `elmi` enthält anscheinend nur die Typdefinitionen in einem Modul
-- die Funktion https://github.com/elm/compiler/blob/2f6dd29258e880dbb7effd57a829a0470d8da48b/builder/src/Elm/Details.hs#L134C1-L134C15 liest die Interfaces aus der `i.dat`-Datei aus
-- der Typ `type Interfaces = Map.Map ModuleName.Canonical I.DependencyInterface`
-- der folgende Typ liefert Informationen über ein Modul
-  ```elm
-  data Interface =
-    Interface
-      { _home    :: Pkg.Name
-      , _values  :: Map.Map Name.Name Can.Annotation
-      , _unions  :: Map.Map Name.Name Union
-      , _aliases :: Map.Map Name.Name Alias
-      , _binops  :: Map.Map Name.Name Binop
-      }
-    deriving (Eq)
-  ```
-
-**Voraussetzungen:** Gute Kenntnisse in Haskell  
-**Geeignet als:** Masterarbeit -->
-
-
-
-<!-- ## Künstliche Intelligenz im _Software Engineering_
-
-### Generieren von Funktionsnamen aus Funktionsdefinitionen
-
-In dieser Arbeit soll eine bestehende Technik zum Lernen von Methodennamen aus Methodendefinitionen mit Hilfe eines neuronalen Netzes auf die Programmiersprache Haskell angewendet werden.
-[CODE2VEC](https://code2vec.org) ist eine Technik, mit der Programme in Vektoren mit Zahlen umgewandelt werden können.
-Diese Vektoren können dann genutzt werden, um neuronale Netze zu trainieren, die Programme verarbeiten können.
-In einer ersten Anwendung wurde diese Technik verwendet, um für eine gegebene Java-Methode einen möglichst gut passenden Namen zu generieren.
-In dieser Arbeit soll genau diese Technik auf Funktionen in der Programmiersprache Haskell angewendet werden.
-In einer Vorarbeit wurde eine Haskell-Anwendung entwickelt, die ein Haskell-Modul einliest und daraus die entsprechenden Vektoren erzeugt.
-
-Im ersten Schritt müssen in dieser Arbeit Haskell-Module gesammelt werden, zum Beispiel von GitHub.
-Diese Module werden dann mit Hilfe der bestehenden Anwendung in Vektoren umgewandelt.
-Mit Hilfe der auf diese Weise generierten Trainingsdaten muss dann ein neuronales Netz trainiert werden.
-Dazu muss eine Python-Anwendung, die für das Training mit den Java-Programmen genutzt wird, entsprechend angepasst werden.
-Es ist zu erwarten, dass die Haskell-Anwendung zur Generierung der Vektoren aus Haskell-Modulen noch angepasst werden muss.
-
-**Voraussetzungen:** Grundkenntnisse in Haskell  
-**Geeignet als:** Bachelor- oder Masterarbeit -->
-
-
 ## Programmiersprachen-Design
-
 
 ### Entwicklung einer Sprache für mathematische Beweise
 
@@ -269,49 +140,6 @@ Die Arbeit startet mit einer Einarbeitung in die grundlegende Struktur der mathe
 **Voraussetzungen:** Gute Kenntnisse in einer funktionalen Sprache, grundlegende mathematische Fähigkeiten  
 **Geeignet als:** Bachelorarbeit
 
-
-### Konzept einer sicheren _Model_-_View_-_Update_-Architektur
-
-In dieser Arbeit soll ein Konzept für eine _Model_-_View_-_Update_-Architektur entwickelt werden, die mehr statische Garantien erlaubt.
-Dabei geht es insbesondere um den Fall, dass in einem bestimmten Modellzustand nur bestimmte Nachrichten an die Anwendung möglich sind.
-Das Konzept soll prototypisch für eine _Model_-_View_-_Update_-Architektur in Haskell umgesetzt werden.
-
-Aktuell lässt sich in der Programmiersprach Elm nicht ausdrücken, dass nur bestimmte Nachrichten in einem bestimmten Modellzustand erwartet werden.
-Wenn man etwa das Beispiel eines Spiels nimmt, kann das Spiel laufen oder beendet sein.
-Während das Spiel läuft ist es beispielsweise möglich eine Spielfigur mit den Tasten zu bewegen.
-Ist das Spiel beendet, sollen diese Eingaben aber nicht verarbeitet werden.
-Wenn die Anwendung im Beendet-Zustand eine Nachricht zum Bewegen der Spielfigur erhält, gibt es zwei Möglichkeiten.
-Die Nachricht kann ignoriert werden, was schnell dazu führt, dass fehlerhafte interne Zustände erhalten bleiben.
-Alternativ kann die Anwendung in einen Fehlerzustand wechseln, wenn ein inkonsistenter Zustand auftritt.
-In diesem Fall wird im Grunde ein Laufzeitfehler ausgelöst und es ist wünschenswert, solche Laufzeitfehler durch statische Fehler zu ersetzen.
-
-Als mögliche Lösung für dieses Problem soll der Einsatz von generalisierten algebraischen Datentypen (GADTs) evaluiert werden.
-Die Programmiersprache Elm stellt keine generalisierten algebraischen Datentypen zur Verfügung, in der Programmiersprache Haskell können diese aber genutzt werden.
-Daher soll das Konzept mithilfe der Haskell-Bibliothek [miso](https://haskell-miso.org) evaluiert werden.
-Das Framework [miso](https://haskell-miso.org) ist eine Implementierung der _Model_-_View_-_Update_-Architektur in Haskell.
-Zur Illustration der Verwendung von miso enthält das miso-Repository eine [Implementierung des TodoMVC](https://github.com/dmjio/miso/blob/master/examples/todo-mvc/Main.hs).
-
-Im Kontext von Haskell soll evaluiert werden, welche Probleme bei der Modellierung von konkreten Anwendungen im Kontext eines sicheren _Model_-_View_-_Update_ entstehen.
-Während die Verwendung von GADTs zum Beispiel eine höhere statische Sicherheit ermöglicht, werden Programmierer*innen ggf. so stark eingeschränkt, dass es schwieriger ist, eine Anwendung zu strukturieren.
-Um diesen Aspekt zu evaluieren, sollen verschiedene typische Beispiele aus der Entwicklung von Frontendanwendungen mit der _Model_-_View_-_Update_-Architektur evaluiert werden.
-
-Die Arbeit startet mit einer Einarbeitung in die _Model_-_View_-_Update_-Architektur und die konkrete Umsetzung in miso.
-Anschließend wird das Konzept der generalisierten algebraischen Datentypen (GADTs) in Haskell erarbeitet.
-
-**Voraussetzungen:** Gute Kenntnisse in einer funktionalen Sprache  
-**Geeignet als:** Bachelor- oder Masterarbeit
-
-<!--
-## Programmiersprachen-Migration
-
-### Werkzeuge zur Migration von JavaScript nach TypeScript
-
-In dieser Arbeit sollen Werkzeuge evaluiert werden, die genutzt werden können, um JavaScript-Anwendungen nach TypeScript zu migrieren.
-Zur Evaluation soll eine konkrete JavaScript-OpenSource-Anwendung genutzt werden.
-Im ersten Schritt muss einer Liste der möglichen Werkzeuge zur Migration erstellt werden.
-Dabei soll sowohl wissenschaftliche Literatur als auch OpenSource-Anwendungen berücksichtigt werden.
- -->
-
 ## Programmanalyse
 
 ### Identifikation von schlecht gewählten Bezeichnern in Java
@@ -319,7 +147,7 @@ Dabei soll sowohl wissenschaftliche Literatur als auch OpenSource-Anwendungen be
 Im Rahmen dieser Arbeit soll die Haskell-Anwendung [jlint](https://github.com/HS-Flensburg-PLTP/jlint) erweitert werden.
 Die Anwendung wurde im Rahmen von mehreren Bachelor-Projekten entwickelt und wird dazu genutzt, den Studierenden in der Veranstaltung [Algorithmen](https://hs-flensburg-algo.github.io) Rückmeldung zur Code-Qualität zu geben.
 Im Rahmen dieser Arbeit soll die Anwendung um Regeln erweitert werden, die sich auf die Qualität von Bezeichnern, also die Namen in einem Programm, beziehen.
-In den letzten Jahren wurden manuell Rückmeldungen zu schlecht gewählten Bezeichnern gegeben, etwa wenn ein Attribut den Namen `array` trug aber eine Liste enthielt.
+In den letzten Jahren wurden manuell Rückmeldungen zu schlecht gewählten Bezeichnern gegeben, etwa wenn ein Attribut den Namen `array` trug, aber eine Liste enthielt.
 Diese manuellen Anmerkungen sollen evaluiert und wiederkehrende Muster in Form von Regeln implementiert werden.
 
 Schlechte Bezeichner dieser Art werden in der Literatur auch als _Linguistic Anti-Pattern_ bezeichnet.
@@ -328,7 +156,6 @@ Einen Einstieg bietet die Publikation [A New Family of Software Anti-Patterns: L
 
 **Voraussetzungen:** Grundlegende Kenntnisse in einer funktionalen Programmiersprache  
 **Geeignet als:** Bachelorarbeit
-
 
 ### Entwicklung eines _Identifier Dictionaries_ in Haskell
 
@@ -348,15 +175,6 @@ Diese Hie-Dateien müssen für ein Projekt erzeugt und gelesen werden, um ein _I
 
 **Voraussetzungen:** Gute Kenntnisse in Haskell  
 **Geeignet als:** Bachelor- oder Masterarbeit
-
-
-<!-- ### Erweiterung des Elm-Compilers
-
-In dieser Arbeit soll eine
-
-Alternativ kann eine solche Anwendung auch für die Programmiersprache Elm entwickelt werden.
-In diesem Fall muss der [Compiler](https://github.com/elm/compiler) der Programmiersprache Elm verwendet werden, um ein Elm-Programm zu bauen  -->
-
 
 ### Redundante Fälle in `case`-Ausdrücken
 
@@ -385,7 +203,6 @@ In diesem Fall wird der Aufruf `snocList [] element` durchgeführt, wobei `eleme
 Der Aufruf `snocList [] element` liefert als Ergebnis `element :: []`.
 Somit erhalten wir von der gesamten dritten Regel als Ergebnis `head :: element :: []`, was identisch zum Ergebnis ist, das die zweite Regel geliefert hätte.
 Daher kann in dieser Definition die zweite Regel entfernt werden.
-
 
 <!-- ```elm
 hasCollision : Snake -> Bool
@@ -444,7 +261,6 @@ Wir erhalten somit `head :: snocList [] element`.
 
 **Voraussetzungen:** Gute Kenntnisse in einer funktionalen Sprache  
 **Geeignet als:** Masterarbeit
-
 
 ### Reimplementierungen erkennen
 
@@ -516,7 +332,6 @@ Als Beispiele für die Erkennung von Reimplementierungen können die Funktionen 
 **Voraussetzungen:** Gute Kenntnisse in einer funktionalen Sprache  
 **Geeignet als:** Bachelorarbeit
 
-
 ### Feedback zu Mathematikaufgaben
 
 Dieses Projekt ist einer Erweiterung des Projektes [Entwicklung einer Sprache für mathematische Beweise](#entwicklung-einer-sprache-für-mathematische-beweise).
@@ -536,88 +351,7 @@ Einen guten Einstieg bietet [Waterproof: Educational Software for Learning How t
 **Voraussetzungen:** Gute Kenntnisse in einer funktionalen Sprache, grundlegende mathematische Fähigkeiten  
 **Geeignet als:** Masterarbeit
 
-
 ## Web-Anwendungen
-
-<!-- ### Regionale Rezepte
-
-In dieser Arbeit soll ein Prototyp für eine Web-Anwendung für Rezepte mit regionalen Zutaten entwickelt werden.
-Der durchschnittlichen Bevölkerung ist heutzutage häufig gar nicht mehr klar, dass nicht jedes Lebensmittel zu jeder Jahreszeit in der Nähe angebaut werden kann.
-Das Ziel dieser Anwendung ist daher, Rezepte zur Verfügung zu stellen, bei denen berücksichtigt wird, dass Zutaten aktuell/zu einem bestimmten Zeitpunkt regional angebaut werden können.
-Im ersten Schritt muss dazu ein Konzept entwickelt werden.
-Das Internet bietet bereits zahlreiche Quellen, in denen man sich über die Saisonalität von landwirtschaftlichen Produkten informieren kann.
-Bei der Nutzung dieser Quellen muss man sich aber aktiv für dieses Thema interessieren und häufig manuell die Zutaten von Rezepten in saisonalen Kalendern suchen.
-Die Anwendung soll daher möglichst niedrigschwellig dafür sorgen, dass mehr Personen Rezepte auswählen, deren Zutaten saisonal regional angebaut werden können.
-Bei der Anwendung soll nicht die Vermittlung von Wissen im Vordergrund stehen, sondern die Motivation von Nutzer\*innen, die Rezepte zu verwenden.
-
-Im ersten Schritt müssen Datenquellen für landwirtschaftliche Produkte evaluiert werden.
-Dabei kann es sich sowohl um Onlinedienste handeln, als auch um Quellen, deren Daten statisch in der Anwendung integriert werden.
-Diese Quellen sollen Daten darüber zur Verfügung stellen, welche landwirtschaftlichen Produkte zu welcher Zeit in Schleswig-Holstein zur Verfügung stehen.
-
-Bei der Bewertung der Nachhaltigkeit von Produkten muss berücksichtigt werden, dass einige Produkte auch als Lagerware zur Verfügung stehen.
-Die Lagerung von Produkten bedeutet aber in einigen Fällen, dass eine aktive Kühlung durchgeführt werden muss.
-Einige Produkte werden außerdem in bestimmten Monaten nur aus dem Gewächshaus angeboten.
-Vor der Umsetzung der Anwendung soll die Nachhaltigkeit dieser Optionen bewertet werden, um zu entscheiden, wie diese Fälle von der Anwendung bewertet werden.
-Außerdem soll bewertet werden, ob alle Zutaten eines Rezeptes regional sein müssen.
-Dies würde zum Beispiel alle Rezepte, die Reis verwenden, ausschließen.
-Ggf. wäre es sinnvoll, um die Ernährung in der breiten Masse nachhaltiger zu gestalten, einen gewissen Kompromiss einzugehen und eine nicht-nachhaltige Zutat in den Rezepten zu erlauben.
-
-<!-- In einem späteren Schritt, der nicht in der Arbeit durchgeführt werden soll, sollen hinter den Rezepten konkrete Anbieter hinterlegt werden.
-Das heißt, für eine Zutat wird dann angegeben, wo das Produkt in der Region erworben werden kann.
-Zu diesen Zweck soll es erst einmal eine Beispielregion, etwa Flensburg oder Kiel verwendet werden. -->
-
-<!-- Technologisch soll die Anwendung mit Elm im Frontend umgesetzt werden.
-Zu Beginn des Projektes sollen verschiedene Alternativen für die Umsetzung des Backends evaluiert werden.
-
-**Voraussetzungen:** Gute Kenntnisse in Elm  
-**Geeignet als:** Bachelor- oder Masterarbeit
--->
-
-<!-- ### Priorities
-
-In dieser Arbeit soll ein Prototyp für eine Web-Anwendung entwickelt werden.
-Die Anwendung erlaubt es, eine Umfrage zu erstellen, bei der Teilnehmer\*innen aus einer vorgegebenen Liste von Optionen eine festgegebene Anzahl an Optionen auswählen können.
-Die Grundstruktur der Anwendung soll sich an Diensten wie [Doodle](doodle.com) oder auch dem [DFN-Terminplaner](https://terminplaner6.dfn.de) orientieren.
-Außerdem kann man die gewählten Optionen in eine Prioritätenreihenfolge bringen.
-Für die Anwendung muss also sowohl ein _Interface_ für die Konfigurator\*innen als auch für Teilnehmer\*innen entwickelt werden.
-
-Die Daten werden in einem Backend gespeichert.
-Die Daten können zum Beispiel mittels [Supabase](https://supabase.com) oder [PostgREST](https://postgrest.org) zur gespeichert werden.
-Es muss kein Nutzermanagement implementiert werden.
-Stattdessen wird die Autorisierung über zufällige _Token_ umgesetzt.
-Das heißt, Teilnehmer\*innen erhalten eine URL mit einem zufälligen _Token_, um an einer Umfrage teilzunehmen.
-Um eine Umfrage editieren zu können, gibt es ebenfalls eine URL mit einem zufälligen _Token_.
-Es soll evaluiert werden, ob es sinnvoll ist, dass Teilnehmer\*innen ihre Auswahl im Nachhinein ändern.
-
-Um die Optionen möglichst optimal auf die Teilnehmer\*innen zu verteilen, wird eine Zuordnung von Optionen zu Teilnehmer\*innen mithilfe von linearer Programmierung durchgeführt.
-Dazu wird ein Microservice zur Verfügung gestellt, der eine Instanz mittels der C-Bibliothek [GNU Linear Programming Kit](https://en.wikipedia.org/wiki/GNU_Linear_Programming_Kit) löst und das Ergebnis in geeigneter Form zurückliefert.
-Zur Umsetzung des Frontends soll die Programmiersprache Elm verwendet werden.
-Die Anwendung wird als _Single Page Application_, zum Beispiel mithilfe des Frameworks [Elm Land](https://elm.land) erstellt.
-
-Neben der Entwicklung der Anwendung soll ein Schwerpunkt der Arbeit auf einem sehr benutzerfreundlichen _User Interface_ liegen.
-
-
-Zu Beginn des Projektes sollen verschiedene Alternativen für die Umsetzung des Backends evaluiert werden.
--->
-
-
-<!-- ### Prove It
-
-Neben den in <a href="#feedback-zu-mathematik-aufgaben">Feedback zu Mathematik-Aufgaben</a> beschriebenen Problemen, besteht ein weiteres Problem darin, dass die Studierenden nicht ausreichend Möglichkeiten haben, die mathematischen Beweise zu üben.
-Aufgrund des Aufwändigen Feedbacks gibt es vergleichsweise wenige Aufgaben zu Beweisen.
-
-Aus diesem Grund soll eine Web-Anwendung entwickelt werden, mit der einfache Formen von Beweisen dieser Art erstellt werden können.
-Bei der Durchführung der Beweise sind nur eine handvoll Schritte möglich.
-Diese möglichen Schritte werden den Nutzer\*innen als Optionen angeboten.
-Je nach dem, welche Option gewählt wird, müssen die Nutzer\*innen dann noch zusätzliche Informationen angeben.
-
-Um den Coq-Compiler aufzurufen, kann entweder [jsCoq](https://github.com/ejgallego/jscoq) genutzt werden, eine JavaScript-Implementierung des Coq-Compilers, oder es wird ein einfaches Backend entwickelt, das den Coq-Compiler ausführt und die Ergebnisse in geeigneter Form zurückgibt.
-Dazu muss das Ergebnis, das der Coq-Compiler bei der Übersetzung eines Programms liefert, entsprechend geparset werden.
-Das heißt, es müssen die notwendigen Informationen aus der Ausgabe des Compilers extrahiert werden.
-
-In einer Erweiterung der Anwendung können Nutzer\*innen die Aufgaben textuell bearbeiten statt eine feste Anzahl von Optionen anzubieten.
-Das heißt, die Anwendung muss in der Lage sein, die Eingabe der Nutzer\*innen zu parsen und auf die Struktur eines typischen Beweise zu überprüfen. -->
-
 
 ### Digitalisierung von Anträgen zur Anerkennung von Leistungen
 
@@ -631,7 +365,6 @@ Zu Beginn des Projektes sollen verschiedene Alternativen für die Umsetzung des 
 
 **Voraussetzungen:** Gute Kenntnisse in Elm  
 **Geeignet als:** Bachelorarbeit
-
 
 ### Digitalisierung der Semesterplanung
 
