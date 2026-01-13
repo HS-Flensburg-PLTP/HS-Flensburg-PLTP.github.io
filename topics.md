@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Abschlussarbeiten/Projekte
-date: 2026-01-06
+date: 2026-01-13
 ---
 
 Die hier aufgeführten Bachelor- und Masterarbeiten können in Absprache auch in Form von Bachelor- bzw. Masterprojekten bearbeitet werden.
@@ -78,21 +78,6 @@ Daher soll nach der Replikation insbesondere ein Konzept entwickelt werden, um m
 Die Arbeit startet mit einer Einarbeitung in Konzepte wie [Parser](fundamentals.md#parser), [abstrakter Syntaxbaum](fundamentals.md#abstrakter-syntaxbaum-ast) und die grundsätzliche Idee von _Repository Mining_-Studien.
 
 **Voraussetzungen:** Kenntnisse in Python  
-**Geeignet als:** Bachelorarbeit
-
-### Replikation einer Studie über Bezeichner in Java
-
-In dieser Arbeit soll die Studie [A Large-Scale Investigation of Local Variable Names in Java Programs: Is Longer Name Better for Broader Scope Variable?](https://link.springer.com/chapter/10.1007/978-3-030-85347-1_35) repliziert werden.
-Die Studie untersucht, wie Bezeichner in Java-Programmen vergeben werden.
-Dazu wurden 1000 GitHib-Repositories analysiert.
-Die Studie gibt an, dass 637.077 lokale Variablen aus 472.665 Java-Quelldateien extrahiert wurden.
-Das wären etwa 1,3 lokale Variable pro Java-Quelldatei.
-Die Daten der Studie stehen unter <https://bit.ly/3xLuaLK> zur Verfügung.
-Bei einer ersten Sichtung der Daten ist bereits aufgefallen, dass gegen die Aussage "The local variables include the formal arguments (parameters) of methods." aus der Publikation anscheinend keine Bezeichner von Methodenparametern gesammelt werden.
-Daher soll die Sammlung der Daten reproduziert und überprüft werden.
-Die Anwendung, welche zum Sammeln der Daten genutzt wurde, wurde in Java geschrieben und steht ebenfalls unter <https://bit.ly/3xLuaLK> zur Verfügung.
-
-**Voraussetzungen:** Gute Kenntnisse in Java  
 **Geeignet als:** Bachelorarbeit
 
 ### Extraktion von Bezeichnern in F#
@@ -366,15 +351,16 @@ Zu Beginn des Projektes sollen verschiedene Alternativen für die Umsetzung des 
 **Voraussetzungen:** Gute Kenntnisse in Elm  
 **Geeignet als:** Bachelorarbeit
 
-### Digitalisierung der Semesterplanung
+### Weiterentwicklung einer Web-Anwendung für Rezepte
 
-Zur Verbesserung der Vorplanung eines Semesters soll ein Prototyp einer Web-Anwendung entwickelt werden, in der Dozent\*innen hinterlegen können, welche Lehrveranstaltungen sie im kommenden Semester planen.
-Dazu gibt die Anwendung eine Liste von möglichen Veranstaltungen vor, die durch die Prüfungsordnung vorgegeben werden.
-Die Nutzer\*innen können sich dann aus der Liste die Veranstaltungen zusammenstellen, die Sie im kommenden Semester planen.
-Im besten Fall ist die Anwendung im Anschluss in der Lage sehr einfache Analysen der Planung durchzuführen.
-Dazu gehört etwa die Analyse, welche Veranstaltungen aus der Prüfungsordnung noch nicht abgedeckt werden.
-Zu diesem Zweck muss in der Anwendung hinterlegt werden, wie viele Studierende in den verschiedenen Semestern in etwa erwartet werden.
-Ansonsten kann zum Beispiel nicht überprüft werden, ob die Anzahl der Labore oder die Anzahl der Wahlpflichtfächer ausreichend ist.
+Im Rahmen einer vorangegangenen Bachelorarbeit wurde eine Web-Anwendung zur Darstellung von Rezepten entwickelt.
+Die Rezepte werden dabei nach der regionalen und saisonalen Verfügbarkeit von Zutaten bewertet.
+Die Anwendung enthält kleinere Mängel und soll zusätzliche Funktionalitäten erhalten.
+Das Frontend der Anwendung ist in Elm mit dem Framework [Elm Land](https://elm.land) entwickelt.
+Das Backend der Anwendung ist in Haskell mit dem Framework [Servant](https://www.servant.dev) entwickelt.
+Bei der Weiterentwicklung der Anwendung sollen die Vorgaben des [Barrierefreiheitsstärkungsgesetz](https://www.bmas.de/DE/Service/Gesetze-und-Gesetzesvorhaben/barrierefreiheitsstaerkungsgesetz.html) berücksichtigt werden.
+Das heißt, Accessibility-Aspekte der Anwendung sollen bewertet und ggf. an die Vorgaben des Gesetzes angepasst werden.
+Auch bei der Entwicklung neuer Funktionalitäten soll dieser Aspekt berücksichtigt werden.
 
 **Voraussetzungen:** Gute Kenntnisse in Elm  
 **Geeignet als:** Bachelorarbeit
