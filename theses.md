@@ -4,7 +4,7 @@ title: "FAQ zu Abschlussarbeiten"
 date: 2026-02-12
 ---
 
-Auf dieser Seite werden ein paar wiederkehrende Frage zu Abschlussarbeiten beantwortet.
+Auf dieser Seite werden ein paar wiederkehrende Fragen zu Abschlussarbeiten beantwortet.
 
 #### Welche Themen kann ich als Abschlussarbeit bearbeiten?
 
@@ -12,7 +12,7 @@ Auf dieser Seite werden ein paar wiederkehrende Frage zu Abschlussarbeiten beant
   Leider schaffe ich es nicht, diese Liste regelmäßig zu pflegen.
   Daher kann es sein, dass ein Thema bereits vergeben oder inhaltlich überholt ist.
   Wenn Sie Interesse daran haben, ein von mir vorgegebenes Thema zu bearbeiten, schreiben Sie mir bitte eine kurze Mail.
-  Ich überarbeite dann die Liste der angebotenen Themen und biete Ihren die Ergebnisse entsprechend zur Bearbeitung an.
+  Ich überarbeite dann die Liste der angebotenen Themen und biete Ihnen die Ergebnisse entsprechend zur Bearbeitung an.
 
 #### Kann ich auch eigene Themen vorschlagen?
 

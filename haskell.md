@@ -136,7 +136,7 @@ Die folgende Tabelle gibt an, wie die _lazy_ Varianten ineinander und in die str
 | Von               | Nach              | Funktion                        |
 | ----------------- | ----------------- | ------------------------------- |
 | `String`          | `Lazy.Text`       | `Text.Lazy.pack`                |
-| `Lazy.Text`       | `String`          | `Text.Lazy.pack`                |
+| `Lazy.Text`       | `String`          | `Text.Lazy.unpack`                |
 | `Lazy.ByteString` | `Lazy.Text`       | `Text.Lazy.Encoding.decodeUtf8` |
 | `Lazy.Text`       | `Lazy.ByteString` | `Text.Lazy.Encoding.encodeUtf8` |
 | `Text`            | `Lazy.Text`       | `Text.Lazy.fromStrict`          |

@@ -30,7 +30,7 @@ Auf dieser Seite werden wiederkehrende Fragen zum Bachelorprojekt in der Angewan
 
 #### Wann startet ein Projekt?
 
-- Da das Projekt erst erst im Anschluss angemeldet wird, kann man formal zu jedem beliebigen Zeitpunkt starten.
+- Da das Projekt erst im Anschluss angemeldet wird, kann man formal zu jedem beliebigen Zeitpunkt starten.
   Im Normalfall läuft ein Projekt aber semesterbegleitend und startet zu Beginn des Semesters.
   Daher sollte man im besten Fall frühzeitig vor dem Beginn des Semesters eine betreuende Person gefunden haben.
 
