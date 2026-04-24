@@ -15,25 +15,26 @@ Die beiden Tools werden folgendermaßen installiert:
 pip install datasette sqlite-utils
 ```
 
-
 ## CSV vorbereiten
 
 Mit `sqlite-utils` wird die CSV-Datei in eine Sqlite-Tabelle konvertiert.
 Dazu dient der folgende Aufruf.
 
 ```
-sqlite-utils insert <DB-Name> <Tabellenname> <CSV-Datei> --csv --detect-types
+sqlite-utils insert <DB-Name> <Tabellenname> <CSV-Datei> --csv --detect-types --empty-null
 ```
 
 `<DB-Name>` steht dabei für den Namen der SQLite-Datei.
 Sollte die angegebene SQLite-Datei zuvor nicht existieren, erstellt das Kommando diese.
 `<Tabellenname>` steht für den Namen der Tabelle, welche aus der CSV-Datei generiert wird.
-Die Option `--csv` gibt an, dass es sich um eine CSV-Datei handelt und `--detect-types` sorgt dafür, dass Typen wie z.B. `Text`, `Integer`, etc. automatisch erkannt werden.
+Die Option `--csv` gibt an, dass es sich um eine CSV-Datei handelt.
+Die Option `--detect-types` sorgt dafür, dass erkannt wird, wenn eine der Spalten den Typ `Integer` oder `Float` nutzt.
+In diesem Fall haben die Einträge in der JSON-Struktur, die später vom Backend zur Verfügung gestellt wird, den entsprechenden Typ.
+Die Option `--empty-null` sorgt dafür, dass ein leerer Eintrag in der CSV-Datei als `null` in der JSON-Struktur interpretiert wird.
 Sollte die CSV-Datei das Zeichen `;` statt `,` zur Trennung nutzen, kann die Option `--delimiter=";"` zum Kommando hinzugefügt werden.
 Sollte die CSV-Datei bereits eine Spalte besitzen, welche die Daten eindeutig differenziert (eine Spalte mit `primary keys`), wie zum Beispiel eine ID, kann man mit dem Parameter `--pk=<Spaltenname>`, `sqlite-utils` mitteilen, diese Spalte als `primary key` zu verwenden, statt automatisch eine Spalte dafür anzulegen.
 
 Weitere Informationen zum Importieren/Konvertieren einer CSV-Datei findet man in der [Dokumentation zu `sqlite-utils`](https://sqlite-utils.datasette.io/en/stable/cli.html#cli-insert-csv-tsv).
-
 
 ## JSON bereitstellen
 
